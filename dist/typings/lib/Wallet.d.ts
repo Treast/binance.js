@@ -1,5 +1,5 @@
-import { Binance } from '../Binance';
+import Binance = require('../Binance');
 declare class Wallet {
     getWallet(this: Binance, s: string): void;
 }
-export default Wallet;
+export = Wallet;

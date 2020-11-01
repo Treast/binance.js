@@ -1,40 +1,73 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Binance = void 0;
-const node_fetch_1 = __importDefault(require("node-fetch"));
-const Wallet_1 = __importDefault(require("./lib/Wallet"));
-class Binance {
-    constructor(apiKey, secretKey, testMode = true) {
-        this.getWallet = Wallet_1.default.prototype.getWallet;
-        this.apiKey = apiKey;
-        this.secretKey = secretKey;
-        this.testMode = testMode;
-    }
-    sendRequest(url, params, method) {
-        const body = this.generateBody(params);
-        return new Promise((resolve, reject) => {
-            node_fetch_1.default(url)
-                .then((res) => res.json())
-                .then((res) => {
-                resolve(res);
-            })
-                .catch((err) => reject(err));
-        });
-    }
-    generateBody(params) {
-        Object.assign(params, { timestamp: Date.now() });
-        return (Object.keys(params)
-            //@ts-ignore
-            .map((key) => `${key}=${params[key]}`)
-            .join('&'));
-    }
-    test() { }
-}
-exports.Binance = Binance;
+const fetch = require("node-fetch");
+const hmacSHA256 = require("crypto-js/hmac-sha256");
+const Wallet_1 = require("./lib/Wallet");
+var Binance;
 (function (Binance) {
+    class Api {
+        constructor(apiKey, secretKey, testMode = true) {
+            this.baseUrlApiLive = 'https://api.binance.com';
+            this.baseUrlApiTest = 'https://testnet.binance.vision';
+            this.securityTypeRequiringSignature = [ESecurityType.TRADE, ESecurityType.USER_DATA, ESecurityType.MARGIN];
+            this.walletDepositHistory = Wallet_1.Wallet.prototype.walletDepositHistory;
+            if (!apiKey)
+                throw new Error('A valid API key is required');
+            if (!secretKey)
+                throw new Error('A valid secret key is required');
+            this.apiKey = apiKey;
+            this.secretKey = secretKey;
+            this.testMode = testMode;
+        }
+        sendRequest(url, params, method, securityType) {
+            const baseUrl = this.testMode ? this.baseUrlApiTest : this.baseUrlApiLive;
+            let populatedParams = Object.assign({ timestamp: Date.now() }, params);
+            let signature = null;
+            const headers = this.defineSecurityType(securityType);
+            const query = this.generateQuery(populatedParams);
+            if (this.securityTypeRequiringSignature.includes(securityType)) {
+                signature = hmacSHA256(query, this.secretKey).toString();
+                populatedParams = Object.assign(Object.assign({}, populatedParams), { signature });
+            }
+            if (method === ERequestMethod.GET) {
+                url += `?${this.generateQuery(populatedParams)}`;
+                populatedParams = {};
+            }
+            return new Promise((resolve, reject) => {
+                fetch(`${baseUrl}${url}`, {
+                    method,
+                    headers,
+                    body: ERequestMethod.GET ? null : JSON.stringify(populatedParams),
+                })
+                    .then((res) => {
+                    if (res.status === 404)
+                        throw new Error('Endpoint not found');
+                    if (res.status === 401)
+                        throw new Error('Forbidden access');
+                    return res.json();
+                })
+                    .then((res) => {
+                    resolve(res);
+                })
+                    .catch((err) => reject(err));
+            });
+        }
+        generateQuery(params) {
+            return (Object.keys(params)
+                //@ts-ignore
+                .map((key) => `${key}=${params[key]}`)
+                .join('&'));
+        }
+        defineSecurityType(securityType) {
+            let headers = {};
+            if (securityType !== ESecurityType.NONE) {
+                headers['X-MBX-APIKEY'] = this.apiKey;
+            }
+            return headers;
+        }
+    }
+    Binance.Api = Api;
     let ERequestMethod;
     (function (ERequestMethod) {
         ERequestMethod["POST"] = "POST";
@@ -42,5 +75,14 @@ exports.Binance = Binance;
         ERequestMethod["PUT"] = "PUT";
         ERequestMethod["DELETE"] = "DELETE";
     })(ERequestMethod = Binance.ERequestMethod || (Binance.ERequestMethod = {}));
+    let ESecurityType;
+    (function (ESecurityType) {
+        ESecurityType["NONE"] = "NONE";
+        ESecurityType["TRADE"] = "TRADE";
+        ESecurityType["USER_DATA"] = "USER_DATA";
+        ESecurityType["MARGIN"] = "MARGIN";
+        ESecurityType["USER_STREAM"] = "USER_STREAM";
+        ESecurityType["MARKET_DATA"] = "MARKET_DATA";
+    })(ESecurityType = Binance.ESecurityType || (Binance.ESecurityType = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

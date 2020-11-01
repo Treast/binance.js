@@ -5,8 +5,8 @@
   "main": "dist/Binance.js",
   "module": "dist/Binance.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack --watch",
+    "build": "tsc -p .",
+    "dev": "tsc -p . -w",
     "test": "jest"
   },
   "types": "dist/typings/Binance.d.ts",
@@ -14,18 +14,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.12.1",
+    "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.6",
     "@types/node-fetch": "^2.5.7",
-    "babel-preset-env": "^1.7.0",
     "dotenv": "^8.2.0",
     "jest": "^26.6.1",
-    "ts-loader": "^8.0.7",
+    "ts-jest": "^26.4.3",
     "tslib": "^2.0.3",
-    "typescript": "^4.0.5",
-    "webpack": "^5.3.2",
-    "webpack-cli": "^4.1.0"
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "crypto-js": "^4.0.0",

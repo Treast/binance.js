@@ -1,4 +1,4 @@
-export declare class Binance {
+declare class Binance {
     private apiKey;
     private secretKey;
     private testMode;
@@ -6,9 +6,10 @@ export declare class Binance {
     protected sendRequest(url: string, params: Binance.IRequestParameters, method: Binance.ERequestMethod): Promise<unknown>;
     private generateBody;
     test(): void;
+    test2(): void;
     getWallet: (this: Binance, s: string) => void;
 }
-export declare namespace Binance {
+declare namespace Binance {
     interface IRequestParameters {
     }
     enum ERequestMethod {
@@ -18,3 +19,4 @@ export declare namespace Binance {
         DELETE = "DELETE"
     }
 }
+export = Binance;

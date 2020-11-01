@@ -1,9 +1,21 @@
 import { Binance } from '../Binance';
 
-class Wallet {
-  getWallet(this: Binance, s: string) {
-    console.log('getWallet', s);
-  }
+export interface IWalletDepositHistory {
+  success: boolean;
+  depositList: IWalletDepositHistoryItem[];
 }
 
-export default Wallet;
+export interface IWalletDepositHistoryItem {
+  insertTime: number;
+  amount: number;
+  asset: string;
+  address: string;
+  txId: string;
+  status: number;
+}
+
+export class Wallet {
+  walletDepositHistory(this: Binance.Api) {
+    return this.sendRequest<IWalletDepositHistory>('/wapi/v3/depositHistory.html', {}, Binance.ERequestMethod.GET, Binance.ESecurityType.USER_DATA);
+  }
+}

@@ -7,19 +7,30 @@ export declare namespace Binance {
         private baseUrlApiTest;
         private securityTypeRequiringSignature;
         constructor(apiKey: string, secretKey: string, testMode?: boolean);
-        protected sendRequest<T>(url: string, params: IRequestParameters, method: ERequestMethod, securityType: ESecurityType): Promise<T>;
+        protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType): Promise<T>;
         private generateQuery;
         private defineSecurityType;
-        walletDepositHistory: (this: Api) => Promise<import("./lib/Wallet").IWalletDepositHistory>;
+        walletSystemStatus: (this: Api) => Promise<import("./lib/Wallet").IWalletSystemStatus>;
+        walletDepositHistory: (this: Api, params?: import("./lib/Wallet").IWalletDepositHistoryParameters) => Promise<import("./lib/Wallet").IWalletDepositHistory>;
+        walletAccountStatus: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAccountStatus>;
+        walletApiTradingStatus: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletApiTradingStatus>;
+        walletAssetDetail: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAssetDetail>;
+        walletDailyAccountSnapshot: (this: Api, params: import("./lib/Wallet").IWalletDailyAccountSnapshotParameters) => Promise<import("./lib/Wallet").IWalletDailyAccountSnapshot>;
+        walletAllCoins: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAllCoins>;
     }
     interface IRequest {
         headers: IRequestHeaders;
         body: IRequestBody;
         urlQuery: string;
     }
-    interface IRequestParameters {
-    }
     interface IRequestBody {
+    }
+    interface IRequestParameters {
+        recvWindow?: number;
+    }
+    interface IRequestPopulatedParameters extends IRequestParameters {
+        signature?: string;
+        timestamp?: number;
     }
     type IRequestHeaders = Record<string, string>;
     enum ERequestMethod {

@@ -23,10 +23,10 @@ export namespace Binance {
       this.testMode = testMode;
     }
 
-    protected sendRequest<T>(url: string, params: IRequestParameters, method: ERequestMethod, securityType: ESecurityType): Promise<T> {
+    protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType): Promise<T> {
       const baseUrl = this.testMode ? this.baseUrlApiTest : this.baseUrlApiLive;
 
-      let populatedParams: IRequestBody = {
+      let populatedParams: IRequestPopulatedParameters = {
         timestamp: Date.now(),
         ...params,
       };
@@ -85,7 +85,13 @@ export namespace Binance {
       return headers;
     }
 
+    walletSystemStatus = Wallet.prototype.walletSystemStatus;
     walletDepositHistory = Wallet.prototype.walletDepositHistory;
+    walletAccountStatus = Wallet.prototype.walletAccountStatus;
+    walletApiTradingStatus = Wallet.prototype.walletApiTradingStatus;
+    walletAssetDetail = Wallet.prototype.walletAssetDetail;
+    walletDailyAccountSnapshot = Wallet.prototype.walletDailyAccountSnapshot;
+    walletAllCoins = Wallet.prototype.walletAllCoins;
   }
 
   export interface IRequest {
@@ -94,8 +100,15 @@ export namespace Binance {
     urlQuery: string;
   }
 
-  export interface IRequestParameters {}
   export interface IRequestBody {}
+  export interface IRequestParameters {
+    recvWindow?: number;
+  }
+
+  export interface IRequestPopulatedParameters extends IRequestParameters {
+    signature?: string;
+    timestamp?: number;
+  }
 
   export type IRequestHeaders = Record<string, string>;
 

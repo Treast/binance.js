@@ -11,7 +11,13 @@ var Binance;
             this.baseUrlApiLive = 'https://api.binance.com';
             this.baseUrlApiTest = 'https://testnet.binance.vision';
             this.securityTypeRequiringSignature = [ESecurityType.TRADE, ESecurityType.USER_DATA, ESecurityType.MARGIN];
+            this.walletSystemStatus = Wallet_1.Wallet.prototype.walletSystemStatus;
             this.walletDepositHistory = Wallet_1.Wallet.prototype.walletDepositHistory;
+            this.walletAccountStatus = Wallet_1.Wallet.prototype.walletAccountStatus;
+            this.walletApiTradingStatus = Wallet_1.Wallet.prototype.walletApiTradingStatus;
+            this.walletAssetDetail = Wallet_1.Wallet.prototype.walletAssetDetail;
+            this.walletDailyAccountSnapshot = Wallet_1.Wallet.prototype.walletDailyAccountSnapshot;
+            this.walletAllCoins = Wallet_1.Wallet.prototype.walletAllCoins;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)

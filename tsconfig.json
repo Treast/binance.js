@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": [],
+    "allowJs": true,
+    "declaration": true,
+    "declarationDir": "./dist/typings/",
+    "outDir": "./dist/",
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "rootDirs": ["src"],
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

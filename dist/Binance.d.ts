@@ -17,6 +17,7 @@ export declare namespace Binance {
         walletAssetDetail: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAssetDetail>;
         walletDailyAccountSnapshot: (this: Api, params: import("./lib/Wallet").IWalletDailyAccountSnapshotParameters) => Promise<import("./lib/Wallet").IWalletDailyAccountSnapshot>;
         walletAllCoins: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAllCoins>;
+        marketOrderBook: (this: Api, params: import("./lib/Market").IMarketOrderBookParameters) => Promise<import("./lib/Market").IMarketOrderBook>;
     }
     interface IRequest {
         headers: IRequestHeaders;
@@ -27,6 +28,8 @@ export declare namespace Binance {
     }
     interface IRequestParameters {
         recvWindow?: number;
+    }
+    interface IResponseEmpty {
     }
     interface IRequestPopulatedParameters extends IRequestParameters {
         signature?: string;

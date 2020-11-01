@@ -4,6 +4,7 @@ exports.Binance = void 0;
 const fetch = require("node-fetch");
 const hmacSHA256 = require("crypto-js/hmac-sha256");
 const Wallet_1 = require("./lib/Wallet");
+const Market_1 = require("./lib/Market");
 var Binance;
 (function (Binance) {
     class Api {
@@ -18,6 +19,7 @@ var Binance;
             this.walletAssetDetail = Wallet_1.Wallet.prototype.walletAssetDetail;
             this.walletDailyAccountSnapshot = Wallet_1.Wallet.prototype.walletDailyAccountSnapshot;
             this.walletAllCoins = Wallet_1.Wallet.prototype.walletAllCoins;
+            this.marketOrderBook = Market_1.Market.prototype.marketOrderBook;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)

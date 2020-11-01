@@ -2,6 +2,7 @@ import fetch = require('node-fetch');
 import hmacSHA256 = require('crypto-js/hmac-sha256');
 
 import { Wallet } from './lib/Wallet';
+import { Market } from './lib/Market';
 
 export namespace Binance {
   export class Api {
@@ -92,6 +93,8 @@ export namespace Binance {
     walletAssetDetail = Wallet.prototype.walletAssetDetail;
     walletDailyAccountSnapshot = Wallet.prototype.walletDailyAccountSnapshot;
     walletAllCoins = Wallet.prototype.walletAllCoins;
+
+    marketOrderBook = Market.prototype.marketOrderBook;
   }
 
   export interface IRequest {
@@ -104,6 +107,8 @@ export namespace Binance {
   export interface IRequestParameters {
     recvWindow?: number;
   }
+
+  export interface IResponseEmpty {}
 
   export interface IRequestPopulatedParameters extends IRequestParameters {
     signature?: string;

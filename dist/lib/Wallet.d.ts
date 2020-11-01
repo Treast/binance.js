@@ -7,11 +7,15 @@ export declare class Wallet {
     walletSystemStatus(this: Binance.Api): Promise<IWalletSystemStatus>;
     walletApiTradingStatus(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletApiTradingStatus>;
     walletDustLog(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletDustLog>;
+    walletDustTransfer(this: Binance.Api, params: IWalletDustTransferParameters): Promise<IWalletDustTransfer>;
     walletTradeFee(this: Binance.Api, params?: IWalletTradeFeeParameters): Promise<IWalletTradeFee>;
     walletAssetDetail(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAssetDetail>;
     walletAllCoins(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAllCoins>;
     walletDailyAccountSnapshot(this: Binance.Api, params: IWalletDailyAccountSnapshotParameters): Promise<IWalletDailyAccountSnapshot>;
     walletAssetDividend(this: Binance.Api, params?: IWalletAssetDividendParameters): Promise<IWalletAssetDividend>;
+    walletWithdraw(this: Binance.Api, params: IWalletWithdrawParameters): Promise<IWalletWithdraw>;
+    walletDisableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters): Promise<Binance.IResponseEmpty>;
+    walletEnableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters): Promise<Binance.IResponseEmpty>;
 }
 export interface IWalletDepositHistoryParameters extends Binance.IRequestParameters {
     asset?: string;
@@ -91,6 +95,22 @@ export interface IWalletApiTradingStatusDetailsIndicator {
 export interface IWalletDustLog {
     success: boolean;
     results: IWalletDustLogResult;
+}
+export interface IWalletDustTransferParameters extends Binance.IRequestParameters {
+    asset: string;
+}
+export interface IWalletDustTransfer {
+    totalServiceCharge: string;
+    totalTransfered: string;
+    transferResult: IWalletDustTransferResult[];
+}
+export interface IWalletDustTransferResult {
+    amount: string;
+    fromAsset: string;
+    operateTime: number;
+    serviceChargeAmount: string;
+    tranId: number;
+    transferedAmount: string;
 }
 export interface IWalletDustLogResult {
     total: number;
@@ -211,4 +231,19 @@ export interface IWalletAssetDividendItem {
     divTime: number;
     endInfo: string;
     tranId: number;
+}
+export interface IWalletWithdrawParameters extends Binance.IRequestParameters {
+    asset: string;
+    withdrawOrderId?: string;
+    network?: string;
+    address: string;
+    addressTag?: string;
+    amount: number;
+    transactionFeeFlag?: boolean;
+    name?: string;
+}
+export interface IWalletWithdraw {
+    success: boolean;
+    id: string;
+    msg: string;
 }

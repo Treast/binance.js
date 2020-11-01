@@ -24,6 +24,9 @@ class Wallet {
     walletDustLog(params = {}) {
         return this.sendRequest('/wapi/v3/userAssetDribbletLog.html', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
+    walletDustTransfer(params) {
+        return this.sendRequest('/sapi/v1/asset/dust', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.USER_DATA);
+    }
     walletTradeFee(params = {}) {
         return this.sendRequest('/wapi/v3/tradeFee.html', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
@@ -38,6 +41,15 @@ class Wallet {
     }
     walletAssetDividend(params = {}) {
         return this.sendRequest('/sapi/v1/asset/assetDividend', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
+    }
+    walletWithdraw(params) {
+        return this.sendRequest('/sapi/v1/asset/assetDividend', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.USER_DATA);
+    }
+    walletDisableFastWithdrawSwitch(params) {
+        return this.sendRequest('/sapi/v1/account/disableFastWithdrawSwitch', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.USER_DATA);
+    }
+    walletEnableFastWithdrawSwitch(params) {
+        return this.sendRequest('/sapi/v1/account/enableFastWithdrawSwitch', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.USER_DATA);
     }
 }
 exports.Wallet = Wallet;

@@ -64,6 +64,15 @@ export class Wallet {
     );
   }
 
+  walletDustTransfer(this: Binance.Api, params: IWalletDustTransferParameters) {
+    return this.sendRequest<IWalletDustTransferParameters, IWalletDustTransfer>(
+      '/sapi/v1/asset/dust',
+      params,
+      Binance.ERequestMethod.POST,
+      Binance.ESecurityType.USER_DATA
+    );
+  }
+
   walletTradeFee(this: Binance.Api, params: IWalletTradeFeeParameters = {}) {
     return this.sendRequest<IWalletTradeFeeParameters, IWalletTradeFee>(
       '/wapi/v3/tradeFee.html',
@@ -105,6 +114,33 @@ export class Wallet {
       '/sapi/v1/asset/assetDividend',
       params,
       Binance.ERequestMethod.GET,
+      Binance.ESecurityType.USER_DATA
+    );
+  }
+
+  walletWithdraw(this: Binance.Api, params: IWalletWithdrawParameters) {
+    return this.sendRequest<IWalletWithdrawParameters, IWalletWithdraw>(
+      '/sapi/v1/asset/assetDividend',
+      params,
+      Binance.ERequestMethod.POST,
+      Binance.ESecurityType.USER_DATA
+    );
+  }
+
+  walletDisableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters) {
+    return this.sendRequest<Binance.IRequestParameters, Binance.IResponseEmpty>(
+      '/sapi/v1/account/disableFastWithdrawSwitch',
+      params,
+      Binance.ERequestMethod.POST,
+      Binance.ESecurityType.USER_DATA
+    );
+  }
+
+  walletEnableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters) {
+    return this.sendRequest<Binance.IRequestParameters, Binance.IResponseEmpty>(
+      '/sapi/v1/account/enableFastWithdrawSwitch',
+      params,
+      Binance.ERequestMethod.POST,
       Binance.ESecurityType.USER_DATA
     );
   }
@@ -201,6 +237,24 @@ export interface IWalletApiTradingStatusDetailsIndicator {
 export interface IWalletDustLog {
   success: boolean;
   results: IWalletDustLogResult;
+}
+export interface IWalletDustTransferParameters extends Binance.IRequestParameters {
+  asset: string;
+}
+
+export interface IWalletDustTransfer {
+  totalServiceCharge: string;
+  totalTransfered: string;
+  transferResult: IWalletDustTransferResult[];
+}
+
+export interface IWalletDustTransferResult {
+  amount: string;
+  fromAsset: string;
+  operateTime: number;
+  serviceChargeAmount: string;
+  tranId: number;
+  transferedAmount: string;
 }
 
 export interface IWalletDustLogResult {
@@ -339,4 +393,21 @@ export interface IWalletAssetDividendItem {
   divTime: number;
   endInfo: string;
   tranId: number;
+}
+
+export interface IWalletWithdrawParameters extends Binance.IRequestParameters {
+  asset: string;
+  withdrawOrderId?: string;
+  network?: string;
+  address: string;
+  addressTag?: string;
+  amount: number;
+  transactionFeeFlag?: boolean;
+  name?: string;
+}
+
+export interface IWalletWithdraw {
+  success: boolean;
+  id: string;
+  msg: string;
 }

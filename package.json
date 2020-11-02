@@ -1,5 +1,5 @@
 {
-  "name": "node-binance",
+  "name": "binance.js",
   "version": "0.1.0",
   "description": "",
   "main": "dist/Binance.js",

@@ -3,6 +3,7 @@ import hmacSHA256 = require('crypto-js/hmac-sha256');
 
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';
+import { Spot } from './lib/Spot';
 
 export namespace Binance {
   export class Api {
@@ -86,15 +87,53 @@ export namespace Binance {
       return headers;
     }
 
-    walletSystemStatus = Wallet.prototype.walletSystemStatus;
+    /** Wallet endpoints */
     walletDepositHistory = Wallet.prototype.walletDepositHistory;
+    walletWithdrawHistory = Wallet.prototype.walletWithdrawHistory;
+    walletDepositAddress = Wallet.prototype.walletDepositAddress;
     walletAccountStatus = Wallet.prototype.walletAccountStatus;
+    walletSystemStatus = Wallet.prototype.walletSystemStatus;
     walletApiTradingStatus = Wallet.prototype.walletApiTradingStatus;
+    walletDustLog = Wallet.prototype.walletDustLog;
+    walletDustTransfer = Wallet.prototype.walletDustTransfer;
+    walletTradeFee = Wallet.prototype.walletTradeFee;
     walletAssetDetail = Wallet.prototype.walletAssetDetail;
-    walletDailyAccountSnapshot = Wallet.prototype.walletDailyAccountSnapshot;
     walletAllCoins = Wallet.prototype.walletAllCoins;
+    walletDailyAccountSnapshot = Wallet.prototype.walletDailyAccountSnapshot;
+    walletAssetDividend = Wallet.prototype.walletAssetDividend;
+    walletWithdraw = Wallet.prototype.walletWithdraw;
+    walletDisableFastWithdrawSwitch = Wallet.prototype.walletDisableFastWithdrawSwitch;
+    walletEnableFastWithdrawSwitch = Wallet.prototype.walletEnableFastWithdrawSwitch;
 
+    /** Market endpoints */
+    marketTestConnectivity = Market.prototype.marketTestConnectivity;
+    marketCheckServerTime = Market.prototype.marketCheckServerTime;
+    marketExchangeInformation = Market.prototype.marketExchangeInformation;
     marketOrderBook = Market.prototype.marketOrderBook;
+    marketRecentTradesList = Market.prototype.marketRecentTradesList;
+    marketOldTradeLookup = Market.prototype.marketOldTradeLookup;
+    marketAggregateTradesList = Market.prototype.marketAggregateTradesList;
+    marketKlineData = Market.prototype.marketKlineData;
+    marketCurrentAveragePrice = Market.prototype.marketCurrentAveragePrice;
+    market24hrTickerPriceChange = Market.prototype.market24hrTickerPriceChange;
+    marketSymbolPriceTicker = Market.prototype.marketSymbolPriceTicker;
+    marketSymbolOrderBookTicker = Market.prototype.marketSymbolOrderBookTicker;
+
+    /** Spot endpoints */
+    spotTestNewOrder = Spot.prototype.spotTestNewOrder;
+    spotNewOrder = Spot.prototype.spotNewOrder;
+    spotCancelOrder = Spot.prototype.spotCancelOrder;
+    spotCancelAllOrdersOnSymbol = Spot.prototype.spotCancelAllOrdersOnSymbol;
+    spotQueryOrder = Spot.prototype.spotQueryOrder;
+    spotCurrentOpenOrders = Spot.prototype.spotCurrentOpenOrders;
+    spotAllOrders = Spot.prototype.spotAllOrders;
+    spotNewOCO = Spot.prototype.spotNewOCO;
+    spotCancelOCO = Spot.prototype.spotCancelOCO;
+    spotQueryOCO = Spot.prototype.spotQueryOCO;
+    spotQueryAllOCO = Spot.prototype.spotQueryAllOCO;
+    spotQueryOpenOCO = Spot.prototype.spotQueryOpenOCO;
+    spotAccountInformation = Spot.prototype.spotAccountInformation;
+    spotAccountTradeList = Spot.prototype.spotAccountTradeList;
   }
 
   export interface IRequest {
@@ -131,5 +170,42 @@ export namespace Binance {
     MARGIN = 'MARGIN',
     USER_STREAM = 'USER_STREAM',
     MARKET_DATA = 'MARKET_DATA',
+  }
+
+  export enum EOrderType {
+    LIMIT = 'LIMIT',
+    MARKET = 'MARKET',
+    STOP_LOSS = 'STOP_LOSS',
+    STOP_LOSS_LIMIT = 'STOP_LOSS_LIMIT',
+    TAKE_PROFIT = 'TAKE_PROFIT',
+    TAKE_PROFIT_LIMIT = 'TAKE_PROFIT_LIMIT',
+    LIMIT_MAKER = 'LIMIT_MAKER',
+  }
+
+  export enum EOrderSide {
+    BUY = 'BUY',
+    SELL = 'SELL',
+  }
+
+  export enum EOrderResponseType {
+    ACK = 'ACK',
+    RESULT = 'RESULT',
+    FULL = 'FULL',
+  }
+
+  export enum EOrderTimeInForce {
+    GTC = 'GTC',
+    IOC = 'IOC',
+    FOK = 'FOK',
+  }
+
+  export enum EOrderStatus {
+    NEW = 'NEW',
+    PARTIALLY_FILLED = 'PARTIALLY_FILLED',
+    FILLED = 'FILLED',
+    CANCELED = 'CANCELED',
+    PENDING_CANCEL = 'PENDING_CANCEL',
+    REJECTED = 'REJECTED',
+    EXPIRED = 'EXPIRED',
   }
 }

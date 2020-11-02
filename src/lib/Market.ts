@@ -1,4 +1,3 @@
-import { eventNames } from 'process';
 import { Binance } from '../Binance';
 
 export class Market {

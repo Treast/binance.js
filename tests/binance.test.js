@@ -4,7 +4,7 @@ const { Binance } = require('../dist/Binance');
 const binance = new Binance.Api(process.env.API_KEY, process.env.SECRET_KEY, false);
 
 binance
-  .walletAllCoins()
+  .spotCurrentOpenOrders()
   .then((res) => {
     console.log(res);
   })

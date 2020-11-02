@@ -21,7 +21,7 @@ export declare namespace Binance {
         walletDustTransfer: (this: Api, params: import("./lib/Wallet").IWalletDustTransferParameters) => Promise<import("./lib/Wallet").IWalletDustTransfer>;
         walletTradeFee: (this: Api, params?: import("./lib/Wallet").IWalletTradeFeeParameters) => Promise<import("./lib/Wallet").IWalletTradeFee>;
         walletAssetDetail: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAssetDetail>;
-        walletAllCoins: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAllCoins>;
+        walletAllCoins: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Wallet").IWalletAllCoins[]>;
         walletDailyAccountSnapshot: (this: Api, params: import("./lib/Wallet").IWalletDailyAccountSnapshotParameters) => Promise<import("./lib/Wallet").IWalletDailyAccountSnapshot>;
         walletAssetDividend: (this: Api, params?: import("./lib/Wallet").IWalletAssetDividendParameters) => Promise<import("./lib/Wallet").IWalletAssetDividend>;
         walletWithdraw: (this: Api, params: import("./lib/Wallet").IWalletWithdrawParameters) => Promise<import("./lib/Wallet").IWalletWithdraw>;

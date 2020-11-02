@@ -92,7 +92,7 @@ export class Wallet {
   }
 
   walletAllCoins(this: Binance.Api, params: Binance.IRequestParameters = {}) {
-    return this.sendRequest<Binance.IRequestParameters, IWalletAllCoins>(
+    return this.sendRequest<Binance.IRequestParameters, IWalletAllCoins[]>(
       '/sapi/v1/capital/config/getall',
       params,
       Binance.ERequestMethod.GET,

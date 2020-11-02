@@ -10,7 +10,7 @@ export declare class Wallet {
     walletDustTransfer(this: Binance.Api, params: IWalletDustTransferParameters): Promise<IWalletDustTransfer>;
     walletTradeFee(this: Binance.Api, params?: IWalletTradeFeeParameters): Promise<IWalletTradeFee>;
     walletAssetDetail(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAssetDetail>;
-    walletAllCoins(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAllCoins>;
+    walletAllCoins(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAllCoins[]>;
     walletDailyAccountSnapshot(this: Binance.Api, params: IWalletDailyAccountSnapshotParameters): Promise<IWalletDailyAccountSnapshot>;
     walletAssetDividend(this: Binance.Api, params?: IWalletAssetDividendParameters): Promise<IWalletAssetDividend>;
     walletWithdraw(this: Binance.Api, params: IWalletWithdrawParameters): Promise<IWalletWithdraw>;

@@ -4,6 +4,7 @@ import hmacSHA256 = require('crypto-js/hmac-sha256');
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';
 import { Spot } from './lib/Spot';
+import { off } from 'process';
 
 export namespace Binance {
   export class Api {
@@ -25,13 +26,27 @@ export namespace Binance {
       this.testMode = testMode;
     }
 
-    protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType): Promise<T> {
+    protected sendRequest<K, T>(
+      url: string,
+      params: K,
+      method: ERequestMethod,
+      securityType: ESecurityType,
+      preventTimestamp: boolean = false
+    ): Promise<T> {
       const baseUrl = this.testMode ? this.baseUrlApiTest : this.baseUrlApiLive;
 
-      let populatedParams: IRequestPopulatedParameters = {
-        timestamp: Date.now(),
-        ...params,
-      };
+      let populatedParams: IRequestPopulatedParameters;
+
+      if (preventTimestamp) {
+        populatedParams = {
+          ...params,
+        };
+      } else {
+        populatedParams = {
+          timestamp: Date.now(),
+          ...params,
+        };
+      }
 
       let signature = null;
 
@@ -55,10 +70,11 @@ export namespace Binance {
 
             return res.json();
           })
-          .then((res) => {
+          .then((res: any) => {
+            if (res.code && res.code < 0) reject(res);
+
             resolve(res as T);
-          })
-          .catch((err) => reject(err));
+          });
       });
     }
 

@@ -7,7 +7,7 @@ export declare namespace Binance {
         private baseUrlApiTest;
         private securityTypeRequiringSignature;
         constructor(apiKey: string, secretKey: string, testMode?: boolean);
-        protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType): Promise<T>;
+        protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType, preventTimestamp?: boolean): Promise<T>;
         private generateQuery;
         private defineSecurityType;
         /** Wallet endpoints */
@@ -30,7 +30,7 @@ export declare namespace Binance {
         /** Market endpoints */
         marketTestConnectivity: (this: Api) => Promise<IResponseEmpty>;
         marketCheckServerTime: (this: Api) => Promise<import("./lib/Market").IMarketCheckServerTime>;
-        marketExchangeInformation: (this: Api) => Promise<import("./lib/Market").IMarketCheckServerTime>;
+        marketExchangeInformation: (this: Api) => Promise<import("./lib/Market").IMarketExchangeInformation>;
         marketOrderBook: (this: Api, params: import("./lib/Market").IMarketOrderBookParameters) => Promise<import("./lib/Market").IMarketOrderBook>;
         marketRecentTradesList: (this: Api, params: import("./lib/Market").IMarketRecentTradesListParameters) => Promise<import("./lib/Market").IMarketRecentTradesList[]>;
         marketOldTradeLookup: (this: Api, params: import("./lib/Market").IMarketOldTradeLookupParameters) => Promise<import("./lib/Market").IMarketOldTradeLookup[]>;

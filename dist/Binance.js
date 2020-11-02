@@ -66,9 +66,15 @@ var Binance;
             this.secretKey = secretKey;
             this.testMode = testMode;
         }
-        sendRequest(url, params, method, securityType) {
+        sendRequest(url, params, method, securityType, preventTimestamp = false) {
             const baseUrl = this.testMode ? this.baseUrlApiTest : this.baseUrlApiLive;
-            let populatedParams = Object.assign({ timestamp: Date.now() }, params);
+            let populatedParams;
+            if (preventTimestamp) {
+                populatedParams = Object.assign({}, params);
+            }
+            else {
+                populatedParams = Object.assign({ timestamp: Date.now() }, params);
+            }
             let signature = null;
             const headers = this.defineSecurityType(securityType);
             const query = this.generateQuery(populatedParams);
@@ -89,9 +95,10 @@ var Binance;
                     return res.json();
                 })
                     .then((res) => {
+                    if (res.code && res.code < 0)
+                        reject(res);
                     resolve(res);
-                })
-                    .catch((err) => reject(err));
+                });
             });
         }
         generateQuery(params) {

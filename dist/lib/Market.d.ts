@@ -2,7 +2,7 @@ import { Binance } from '../Binance';
 export declare class Market {
     marketTestConnectivity(this: Binance.Api): Promise<Binance.IResponseEmpty>;
     marketCheckServerTime(this: Binance.Api): Promise<IMarketCheckServerTime>;
-    marketExchangeInformation(this: Binance.Api): Promise<IMarketCheckServerTime>;
+    marketExchangeInformation(this: Binance.Api): Promise<IMarketExchangeInformation>;
     marketOrderBook(this: Binance.Api, params: IMarketOrderBookParameters): Promise<IMarketOrderBook>;
     marketRecentTradesList(this: Binance.Api, params: IMarketRecentTradesListParameters): Promise<IMarketRecentTradesList[]>;
     marketOldTradeLookup(this: Binance.Api, params: IMarketOldTradeLookupParameters): Promise<IMarketOldTradeLookup[]>;

@@ -6,7 +6,8 @@ export class Market {
       '/api/v3/ping',
       {},
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -15,16 +16,18 @@ export class Market {
       '/api/v3/time',
       {},
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
   marketExchangeInformation(this: Binance.Api) {
-    return this.sendRequest<Binance.IRequestParameters, IMarketCheckServerTime>(
+    return this.sendRequest<Binance.IRequestParameters, IMarketExchangeInformation>(
       '/api/v3/exchangeInfo',
       {},
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -33,7 +36,8 @@ export class Market {
       '/api/v3/depth',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -42,7 +46,8 @@ export class Market {
       '/api/v3/trades',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -51,7 +56,8 @@ export class Market {
       '/api/v3/historicalTrades',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -60,7 +66,8 @@ export class Market {
       '/api/v3/aggTrades',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -69,7 +76,8 @@ export class Market {
       '/api/v3/klines',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -78,7 +86,8 @@ export class Market {
       '/api/v3/avgPrice',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -87,7 +96,8 @@ export class Market {
       '/api/v3/ticker/24hr',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -96,7 +106,8 @@ export class Market {
       '/api/v3/ticker/price',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 
@@ -105,7 +116,8 @@ export class Market {
       '/api/v3/ticker/bookTicker',
       params,
       Binance.ERequestMethod.GET,
-      Binance.ESecurityType.MARKET_DATA
+      Binance.ESecurityType.MARKET_DATA,
+      true
     );
   }
 }

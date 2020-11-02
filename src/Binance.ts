@@ -44,16 +44,10 @@ export namespace Binance {
         populatedParams = { ...populatedParams, signature };
       }
 
-      if (method === ERequestMethod.GET) {
-        url += `?${this.generateQuery(populatedParams)}`;
-        populatedParams = {};
-      }
-
       return new Promise((resolve, reject) => {
-        fetch(`${baseUrl}${url}`, {
+        fetch(`${baseUrl}${url}?${this.generateQuery(populatedParams)}`, {
           method,
           headers,
-          body: ERequestMethod.GET ? null : JSON.stringify(populatedParams),
         })
           .then((res) => {
             if (res.status === 404) throw new Error('Endpoint not found');
@@ -78,7 +72,9 @@ export namespace Binance {
     }
 
     private defineSecurityType(securityType: ESecurityType): IRequestHeaders {
-      let headers: IRequestHeaders = {};
+      let headers: IRequestHeaders = {
+        'Content-Type': 'application/json;charset=UTF-8',
+      };
 
       if (securityType !== ESecurityType.NONE) {
         headers['X-MBX-APIKEY'] = this.apiKey;

@@ -33,7 +33,7 @@ class Spot {
     spotQueryOCO(params) {
         return this.sendRequest('/api/v3/orderList', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
-    spotQueryAllOCO(params) {
+    spotQueryAllOCO(params = {}) {
         return this.sendRequest('/api/v3/allOrderList', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
     spotQueryOpenOCO(params = {}) {

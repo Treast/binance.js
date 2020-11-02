@@ -42,7 +42,7 @@ export declare namespace Binance {
         marketSymbolOrderBookTicker: (this: Api, params?: import("./lib/Market").IMarket24hTickerPriceChangeParameters) => Promise<import("./lib/Market").IMarketSymbolOrderBookTicker | import("./lib/Market").IMarketSymbolOrderBookTicker[]>;
         /** Spot endpoints */
         spotTestNewOrder: (this: Api, params: import("./lib/Spot").ISpotNewOrderParameters) => Promise<IResponseEmpty>;
-        spotNewOrder: (this: Api, params: import("./lib/Spot").ISpotNewOrderParameters) => Promise<import("./lib/Spot").ISpotNewOrderParameters>;
+        spotNewOrder: (this: Api, params: import("./lib/Spot").ISpotNewOrderParameters) => Promise<import("./lib/Spot").ISpotNewOrder>;
         spotCancelOrder: (this: Api, params: import("./lib/Spot").ISpotCancelOrderParameters) => Promise<import("./lib/Spot").ISpotCancelOrder>;
         spotCancelAllOrdersOnSymbol: (this: Api, params: import("./lib/Spot").ISpotCancelAllOrdersOnSymbolParameters) => Promise<import("./lib/Spot").ISpotCancelAllOrdersOnSymbol[]>;
         spotQueryOrder: (this: Api, params: import("./lib/Spot").ISpotQueryOrderParameters) => Promise<import("./lib/Spot").ISpotQueryOrder>;
@@ -51,10 +51,10 @@ export declare namespace Binance {
         spotNewOCO: (this: Api, params: import("./lib/Spot").ISpotNewOCOParameters) => Promise<import("./lib/Spot").ISpotNewOCO>;
         spotCancelOCO: (this: Api, params: import("./lib/Spot").ISpotCancelOCOParameters) => Promise<import("./lib/Spot").ISpotNewOCO>;
         spotQueryOCO: (this: Api, params: import("./lib/Spot").ISpotQueryOCOParameters) => Promise<import("./lib/Spot").ISpotQueryOCO>;
-        spotQueryAllOCO: (this: Api, params: import("./lib/Spot").ISpotQueryAllOCOParameters) => Promise<import("./lib/Spot").ISpotQueryOCO[]>;
+        spotQueryAllOCO: (this: Api, params?: import("./lib/Spot").ISpotQueryAllOCOParameters) => Promise<import("./lib/Spot").ISpotQueryOCO[]>;
         spotQueryOpenOCO: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Spot").ISpotQueryOrder[]>;
         spotAccountInformation: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Spot").ISpotAccountInformation>;
-        spotAccountTradeList: (this: Api, params: import("./lib/Spot").ISpotAccountTradeListParameters) => Promise<import("./lib/Spot").ISpotAccountTradeList>;
+        spotAccountTradeList: (this: Api, params: import("./lib/Spot").ISpotAccountTradeListParameters) => Promise<import("./lib/Spot").ISpotAccountTradeList[]>;
     }
     interface IRequest {
         headers: IRequestHeaders;

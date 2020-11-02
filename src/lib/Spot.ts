@@ -91,7 +91,7 @@ export class Spot {
     );
   }
 
-  spotQueryAllOCO(this: Binance.Api, params: ISpotQueryAllOCOParameters) {
+  spotQueryAllOCO(this: Binance.Api, params: ISpotQueryAllOCOParameters = {}) {
     return this.sendRequest<ISpotQueryAllOCOParameters, ISpotQueryAllOCO[]>(
       '/api/v3/allOrderList',
       params,
@@ -119,7 +119,7 @@ export class Spot {
   }
 
   spotAccountTradeList(this: Binance.Api, params: ISpotAccountTradeListParameters) {
-    return this.sendRequest<ISpotAccountTradeListParameters, ISpotAccountTradeList>(
+    return this.sendRequest<ISpotAccountTradeListParameters, ISpotAccountTradeList[]>(
       '/api/v3/myTrades',
       params,
       Binance.ERequestMethod.GET,

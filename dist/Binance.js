@@ -76,15 +76,10 @@ var Binance;
                 signature = hmacSHA256(query, this.secretKey).toString();
                 populatedParams = Object.assign(Object.assign({}, populatedParams), { signature });
             }
-            if (method === ERequestMethod.GET) {
-                url += `?${this.generateQuery(populatedParams)}`;
-                populatedParams = {};
-            }
             return new Promise((resolve, reject) => {
-                fetch(`${baseUrl}${url}`, {
+                fetch(`${baseUrl}${url}?${this.generateQuery(populatedParams)}`, {
                     method,
                     headers,
-                    body: ERequestMethod.GET ? null : JSON.stringify(populatedParams),
                 })
                     .then((res) => {
                     if (res.status === 404)
@@ -106,7 +101,9 @@ var Binance;
                 .join('&'));
         }
         defineSecurityType(securityType) {
-            let headers = {};
+            let headers = {
+                'Content-Type': 'application/json;charset=UTF-8',
+            };
             if (securityType !== ESecurityType.NONE) {
                 headers['X-MBX-APIKEY'] = this.apiKey;
             }

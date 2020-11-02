@@ -1,7 +1,7 @@
 import { Binance } from '../Binance';
 export declare class Spot {
     spotTestNewOrder(this: Binance.Api, params: ISpotNewOrderParameters): Promise<Binance.IResponseEmpty>;
-    spotNewOrder(this: Binance.Api, params: ISpotNewOrderParameters): Promise<ISpotNewOrderParameters>;
+    spotNewOrder(this: Binance.Api, params: ISpotNewOrderParameters): Promise<ISpotNewOrder>;
     spotCancelOrder(this: Binance.Api, params: ISpotCancelOrderParameters): Promise<ISpotCancelOrder>;
     spotCancelAllOrdersOnSymbol(this: Binance.Api, params: ISpotCancelAllOrdersOnSymbolParameters): Promise<ISpotCancelAllOrdersOnSymbol[]>;
     spotQueryOrder(this: Binance.Api, params: ISpotQueryOrderParameters): Promise<ISpotQueryOrder>;
@@ -10,10 +10,10 @@ export declare class Spot {
     spotNewOCO(this: Binance.Api, params: ISpotNewOCOParameters): Promise<ISpotNewOCO>;
     spotCancelOCO(this: Binance.Api, params: ISpotCancelOCOParameters): Promise<ISpotNewOCO>;
     spotQueryOCO(this: Binance.Api, params: ISpotQueryOCOParameters): Promise<ISpotQueryOCO>;
-    spotQueryAllOCO(this: Binance.Api, params: ISpotQueryAllOCOParameters): Promise<ISpotQueryOCO[]>;
+    spotQueryAllOCO(this: Binance.Api, params?: ISpotQueryAllOCOParameters): Promise<ISpotQueryOCO[]>;
     spotQueryOpenOCO(this: Binance.Api, params?: Binance.IRequestParameters): Promise<ISpotQueryOrder[]>;
     spotAccountInformation(this: Binance.Api, params?: Binance.IRequestParameters): Promise<ISpotAccountInformation>;
-    spotAccountTradeList(this: Binance.Api, params: ISpotAccountTradeListParameters): Promise<ISpotAccountTradeList>;
+    spotAccountTradeList(this: Binance.Api, params: ISpotAccountTradeListParameters): Promise<ISpotAccountTradeList[]>;
 }
 export interface ISpotNewOrderParameters extends Binance.IRequestParameters {
     symbol: string;

@@ -19,14 +19,20 @@ const createOrder = () => {
   });
 };
 
-const createOCOOrder = () => {
+const createOCOOrder = async () => {
+  const bnbRes = await binance.marketCurrentAveragePrice({
+    symbol: ASSET_ORDER_OCO,
+  });
+
+  const bnbPrice = parseFloat(parseFloat(bnbRes.price).toFixed(2));
+
   return binance.spotNewOCO({
     symbol: ASSET_ORDER_OCO,
-    price: 27,
+    price: bnbPrice - 1,
     quantity: 10,
     side: Binance.EOrderSide.BUY,
-    stopPrice: 29.5,
-    stopLimitPrice: 30,
+    stopPrice: bnbPrice + 1.5,
+    stopLimitPrice: bnbPrice + 2,
     stopLimitTimeInForce: Binance.EOrderTimeInForce.GTC,
   });
 };

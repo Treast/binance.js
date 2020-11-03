@@ -62,13 +62,13 @@ binance
  - [x] Market endpoints
  - [x] Spot endpoints
  - [ ] Margin endpoints
- - [ ] Sub-accounts endpoints
- - [ ] Streams
  - [ ] Saving endpoints
- - [ ] Mining endpoints
  - [ ] Futures endpoints
+ - [ ] Streams
+ - [ ] Mining endpoints
  - [ ] BLVT endpoints
  - [ ] BSwap endpoints
+ - [ ] Sub-accounts endpoints
  - [ ] Better error handling
 
 ## License

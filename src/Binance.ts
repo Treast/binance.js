@@ -4,7 +4,6 @@ import hmacSHA256 = require('crypto-js/hmac-sha256');
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';
 import { Spot } from './lib/Spot';
-import { off } from 'process';
 
 export namespace Binance {
   export class Api {

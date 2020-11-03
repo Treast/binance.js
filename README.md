@@ -16,13 +16,13 @@ An API wrapper for Binance. Build your application faster !
 
 ## Installation
 
-	npm install binance-js --save
+	npm install binance.js --save
 
 ## Usage
 
 ### Node
 ```js
-const { Binance } = require('binance-js');
+const { Binance } = require('binance.js');
 
 const binance = new Binance.Api(API_KEY, TEST_SECRET_KEY,  true); // 3rd parameter is testMode. Set explicitly to false if you want to use Live API.
 
@@ -38,7 +38,7 @@ binance
 ### Browser
    
 ```js
-import { Binance } from 'binance-js';
+import { Binance } from 'binance.js';
 
 const binance = new Binance.Api(API_KEY, TEST_SECRET_KEY,  true); // 3rd parameter is testMode. Set explicitly to false if you want to use Live API.
 

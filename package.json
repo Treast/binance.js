@@ -1,7 +1,7 @@
 {
-  "name": "binance.js",
+  "name": "binance-js",
   "version": "0.1.0",
-  "description": "",
+  "description": "An API wrapper for Binance. Build your application faster !",
   "main": "dist/Binance.js",
   "module": "dist/Binance.js",
   "scripts": {
@@ -10,9 +10,18 @@
     "test": "jest"
   },
   "types": "dist/typings/Binance.d.ts",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "binance",
+    "binance api",
+    "cryptocurrency",
+    "crypto",
+    "bitcoin",
+    "ethereum",
+    "btc",
+    "eth"
+  ],
+  "author": "Vincent Riva <vincent.riva@outlook.fr>",
+  "license": "MIT",
   "devDependencies": {
     "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.15",

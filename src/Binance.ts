@@ -219,4 +219,10 @@ export namespace Binance {
     REJECTED = 'REJECTED',
     EXPIRED = 'EXPIRED',
   }
+
+  export enum EOrderSideEffectType {
+    NO_SIDE_EFFECT = 'NO_SIDE_EFFECT',
+    MARGIN_BUY = 'MARGIN_BUY',
+    AUTO_REPAY = 'AUTO_REPAY',
+  }
 }

@@ -171,5 +171,11 @@ var Binance;
         EOrderStatus["REJECTED"] = "REJECTED";
         EOrderStatus["EXPIRED"] = "EXPIRED";
     })(EOrderStatus = Binance.EOrderStatus || (Binance.EOrderStatus = {}));
+    let EOrderSideEffectType;
+    (function (EOrderSideEffectType) {
+        EOrderSideEffectType["NO_SIDE_EFFECT"] = "NO_SIDE_EFFECT";
+        EOrderSideEffectType["MARGIN_BUY"] = "MARGIN_BUY";
+        EOrderSideEffectType["AUTO_REPAY"] = "AUTO_REPAY";
+    })(EOrderSideEffectType = Binance.EOrderSideEffectType || (Binance.EOrderSideEffectType = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

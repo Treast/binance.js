@@ -55,6 +55,15 @@ binance
 });
 ```
 
+### Functions
+All functions have the same name as described on the official documentation and are prefixed by the domain: [https://binance-docs.github.io/apidocs/](https://binance-docs.github.io/apidocs/).
+
+**Example:** *Spot > New Order* becomes *spotNewOrder*
+
+### Streams
+Stream functions return a *Websocket* instance from the *ws* package. A cache is set up to prevent opening a same stream twice.
+
+
 ## Progress
 
  - [x] API Structure
@@ -64,7 +73,7 @@ binance
  - [x] Margin endpoints
  - [ ] Saving endpoints
  - [ ] Futures endpoints
- - [ ] Streams
+ - [x] Streams
  - [ ] Mining endpoints
  - [ ] BLVT endpoints
  - [ ] BSwap endpoints

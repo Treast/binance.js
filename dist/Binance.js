@@ -3,16 +3,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Binance = void 0;
 const fetch = require("node-fetch");
 const hmacSHA256 = require("crypto-js/hmac-sha256");
+const WebSocket = require("ws");
 const Wallet_1 = require("./lib/Wallet");
 const Market_1 = require("./lib/Market");
 const Spot_1 = require("./lib/Spot");
 const Margin_1 = require("./lib/Margin");
+const Stream_1 = require("./lib/Stream");
 var Binance;
 (function (Binance) {
     class Api {
         constructor(apiKey, secretKey, testMode = true) {
             this.baseUrlApiLive = 'https://api.binance.com';
             this.baseUrlApiTest = 'https://testnet.binance.vision';
+            this.baseUrlStream = 'wss://stream.binance.com:9443';
+            this.streams = new Map();
             this.securityTypeRequiringSignature = [ESecurityType.TRADE, ESecurityType.USER_DATA, ESecurityType.MARGIN];
             /** Wallet endpoints */
             this.walletDepositHistory = Wallet_1.Wallet.prototype.walletDepositHistory;
@@ -88,6 +92,10 @@ var Binance;
             this.marginQueryIsolatedMarginAccountInfo = Margin_1.Margin.prototype.marginQueryIsolatedMarginAccountInfo;
             this.marginQueryIsolatedMarginSymbol = Margin_1.Margin.prototype.marginQueryIsolatedMarginSymbol;
             this.marginGetAllIsolatedMarginSymbol = Margin_1.Margin.prototype.marginGetAllIsolatedMarginSymbol;
+            /** Streams */
+            this.streamAggregateTrade = Stream_1.Stream.prototype.streamAggregateTrade;
+            this.streamAllMarketMiniTickers = Stream_1.Stream.prototype.streamAllMarketMiniTickers;
+            this.streamPartialBookDepth = Stream_1.Stream.prototype.streamPartialBookDepth;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)
@@ -145,6 +153,15 @@ var Binance;
                 headers['X-MBX-APIKEY'] = this.apiKey;
             }
             return headers;
+        }
+        createStream(url) {
+            if (this.streams.has(url))
+                return this.streams.get(url);
+            const ws = new WebSocket(`${this.baseUrlStream}${url}`);
+            ws.on('ping', () => ws.pong());
+            ws.on('close', () => this.streams.delete(url));
+            ws.on('open', () => this.streams.set(url, ws));
+            return ws;
         }
     }
     Binance.Api = Api;
@@ -207,5 +224,33 @@ var Binance;
         EOrderSideEffectType["MARGIN_BUY"] = "MARGIN_BUY";
         EOrderSideEffectType["AUTO_REPAY"] = "AUTO_REPAY";
     })(EOrderSideEffectType = Binance.EOrderSideEffectType || (Binance.EOrderSideEffectType = {}));
+    let EStreamType;
+    (function (EStreamType) {
+        EStreamType["AGGREGATE_TRADE"] = "AGGREGATE_TRADE";
+        EStreamType["TRADE"] = "TRADE";
+        EStreamType["CANDLESTICK_TRADE"] = "CANDLESTICK_TRADE";
+        EStreamType["SYMBOL_MINI_TICKER"] = "SYMBOL_MINI_TICKER";
+        EStreamType["SYMBOL_TICKER"] = "SYMBOL_TICKER";
+        EStreamType["BOOK_TICKER"] = "BOOK_TICKER";
+        EStreamType["DEPTH"] = "DEPTH";
+    })(EStreamType = Binance.EStreamType || (Binance.EStreamType = {}));
+    let EInterval;
+    (function (EInterval) {
+        EInterval["INTERVAL_1m"] = "1m";
+        EInterval["INTERVAL_3m"] = "3m";
+        EInterval["INTERVAL_5m"] = "5m";
+        EInterval["INTERVAL_15m"] = "15m";
+        EInterval["INTERVAL_30m"] = "30m";
+        EInterval["INTERVAL_1h"] = "1h";
+        EInterval["INTERVAL_2h"] = "2h";
+        EInterval["INTERVAL_4h"] = "4h";
+        EInterval["INTERVAL_6h"] = "6h";
+        EInterval["INTERVAL_8h"] = "8h";
+        EInterval["INTERVAL_12h"] = "12h";
+        EInterval["INTERVAL_1d"] = "1d";
+        EInterval["INTERVAL_3d"] = "3d";
+        EInterval["INTERVAL_1w"] = "1w";
+        EInterval["INTERVAL_1M"] = "1M";
+    })(EInterval = Binance.EInterval || (Binance.EInterval = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

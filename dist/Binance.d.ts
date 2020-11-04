@@ -1,3 +1,4 @@
+import WebSocket = require('ws');
 export declare namespace Binance {
     class Api {
         private apiKey;
@@ -5,11 +6,14 @@ export declare namespace Binance {
         private testMode;
         private baseUrlApiLive;
         private baseUrlApiTest;
+        private baseUrlStream;
+        private streams;
         private securityTypeRequiringSignature;
         constructor(apiKey: string, secretKey: string, testMode?: boolean);
         protected sendRequest<K, T>(url: string, params: K, method: ERequestMethod, securityType: ESecurityType, preventTimestamp?: boolean): Promise<T>;
         private generateQuery;
         private defineSecurityType;
+        protected createStream(url: string): WebSocket | undefined;
         /** Wallet endpoints */
         walletDepositHistory: (this: Api, params?: import("./lib/Wallet").IWalletDepositHistoryParameters) => Promise<import("./lib/Wallet").IWalletDepositHistory>;
         walletWithdrawHistory: (this: Api, params?: import("./lib/Wallet").IWalletWithdrawHistoryParameters) => Promise<import("./lib/Wallet").IWalletWithdrawHistory>;
@@ -84,6 +88,10 @@ export declare namespace Binance {
         marginQueryIsolatedMarginAccountInfo: (this: Api, params?: import("./lib/Margin").IMarginQueryIsolatedMarginAccountInfoParameters) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginAccountInfo>;
         marginQueryIsolatedMarginSymbol: (this: Api, params: import("./lib/Margin").IMarginQueryIsolatedMarginSymbolParameters) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginSymbol>;
         marginGetAllIsolatedMarginSymbol: (this: Api, params?: IResponseEmpty) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginSymbol[]>;
+        /** Streams */
+        streamAggregateTrade: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
+        streamAllMarketMiniTickers: (this: Api) => WebSocket | undefined;
+        streamPartialBookDepth: (this: Api, params: import("./lib/Stream").IStreamPartialBookDepth) => WebSocket | undefined;
     }
     interface IRequest {
         headers: IRequestHeaders;
@@ -152,5 +160,31 @@ export declare namespace Binance {
         NO_SIDE_EFFECT = "NO_SIDE_EFFECT",
         MARGIN_BUY = "MARGIN_BUY",
         AUTO_REPAY = "AUTO_REPAY"
+    }
+    enum EStreamType {
+        AGGREGATE_TRADE = "AGGREGATE_TRADE",
+        TRADE = "TRADE",
+        CANDLESTICK_TRADE = "CANDLESTICK_TRADE",
+        SYMBOL_MINI_TICKER = "SYMBOL_MINI_TICKER",
+        SYMBOL_TICKER = "SYMBOL_TICKER",
+        BOOK_TICKER = "BOOK_TICKER",
+        DEPTH = "DEPTH"
+    }
+    enum EInterval {
+        INTERVAL_1m = "1m",
+        INTERVAL_3m = "3m",
+        INTERVAL_5m = "5m",
+        INTERVAL_15m = "15m",
+        INTERVAL_30m = "30m",
+        INTERVAL_1h = "1h",
+        INTERVAL_2h = "2h",
+        INTERVAL_4h = "4h",
+        INTERVAL_6h = "6h",
+        INTERVAL_8h = "8h",
+        INTERVAL_12h = "12h",
+        INTERVAL_1d = "1d",
+        INTERVAL_3d = "3d",
+        INTERVAL_1w = "1w",
+        INTERVAL_1M = "1M"
     }
 }

@@ -1,10 +1,12 @@
 import fetch = require('node-fetch');
 import hmacSHA256 = require('crypto-js/hmac-sha256');
+import WebSocket = require('ws');
 
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';
 import { Spot } from './lib/Spot';
 import { Margin } from './lib/Margin';
+import { Stream } from './lib/Stream';
 
 export namespace Binance {
   export class Api {
@@ -14,6 +16,10 @@ export namespace Binance {
 
     private baseUrlApiLive = 'https://api.binance.com';
     private baseUrlApiTest = 'https://testnet.binance.vision';
+
+    private baseUrlStream = 'wss://stream.binance.com:9443';
+
+    private streams: Map<string, WebSocket> = new Map<string, WebSocket>();
 
     private securityTypeRequiringSignature: ESecurityType[] = [ESecurityType.TRADE, ESecurityType.USER_DATA, ESecurityType.MARGIN];
 
@@ -99,6 +105,17 @@ export namespace Binance {
       return headers;
     }
 
+    protected createStream(url: string) {
+      if (this.streams.has(url)) return this.streams.get(url);
+
+      const ws = new WebSocket(`${this.baseUrlStream}${url}`);
+      ws.on('ping', () => ws.pong());
+      ws.on('close', () => this.streams.delete(url));
+      ws.on('open', () => this.streams.set(url, ws));
+
+      return ws;
+    }
+
     /** Wallet endpoints */
     walletDepositHistory = Wallet.prototype.walletDepositHistory;
     walletWithdrawHistory = Wallet.prototype.walletWithdrawHistory;
@@ -176,6 +193,11 @@ export namespace Binance {
     marginQueryIsolatedMarginAccountInfo = Margin.prototype.marginQueryIsolatedMarginAccountInfo;
     marginQueryIsolatedMarginSymbol = Margin.prototype.marginQueryIsolatedMarginSymbol;
     marginGetAllIsolatedMarginSymbol = Margin.prototype.marginGetAllIsolatedMarginSymbol;
+
+    /** Streams */
+    streamAggregateTrade = Stream.prototype.streamAggregateTrade;
+    streamAllMarketMiniTickers = Stream.prototype.streamAllMarketMiniTickers;
+    streamPartialBookDepth = Stream.prototype.streamPartialBookDepth;
   }
 
   export interface IRequest {
@@ -255,5 +277,33 @@ export namespace Binance {
     NO_SIDE_EFFECT = 'NO_SIDE_EFFECT',
     MARGIN_BUY = 'MARGIN_BUY',
     AUTO_REPAY = 'AUTO_REPAY',
+  }
+
+  export enum EStreamType {
+    AGGREGATE_TRADE = 'AGGREGATE_TRADE',
+    TRADE = 'TRADE',
+    CANDLESTICK_TRADE = 'CANDLESTICK_TRADE',
+    SYMBOL_MINI_TICKER = 'SYMBOL_MINI_TICKER',
+    SYMBOL_TICKER = 'SYMBOL_TICKER',
+    BOOK_TICKER = 'BOOK_TICKER',
+    DEPTH = 'DEPTH',
+  }
+
+  export enum EInterval {
+    INTERVAL_1m = '1m',
+    INTERVAL_3m = '3m',
+    INTERVAL_5m = '5m',
+    INTERVAL_15m = '15m',
+    INTERVAL_30m = '30m',
+    INTERVAL_1h = '1h',
+    INTERVAL_2h = '2h',
+    INTERVAL_4h = '4h',
+    INTERVAL_6h = '6h',
+    INTERVAL_8h = '8h',
+    INTERVAL_12h = '12h',
+    INTERVAL_1d = '1d',
+    INTERVAL_3d = '3d',
+    INTERVAL_1w = '1w',
+    INTERVAL_1M = '1M',
   }
 }

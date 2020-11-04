@@ -64,6 +64,9 @@ export class Wallet {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   walletDustTransfer(this: Binance.Api, params: IWalletDustTransferParameters) {
     return this.sendRequest<IWalletDustTransferParameters, IWalletDustTransfer>(
       '/sapi/v1/asset/dust',
@@ -118,6 +121,9 @@ export class Wallet {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   walletWithdraw(this: Binance.Api, params: IWalletWithdrawParameters) {
     return this.sendRequest<IWalletWithdrawParameters, IWalletWithdraw>(
       '/sapi/v1/asset/assetDividend',
@@ -127,6 +133,9 @@ export class Wallet {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   walletDisableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters) {
     return this.sendRequest<Binance.IRequestParameters, Binance.IResponseEmpty>(
       '/sapi/v1/account/disableFastWithdrawSwitch',
@@ -136,6 +145,9 @@ export class Wallet {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   walletEnableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters) {
     return this.sendRequest<Binance.IRequestParameters, Binance.IResponseEmpty>(
       '/sapi/v1/account/enableFastWithdrawSwitch',

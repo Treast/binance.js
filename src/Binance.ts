@@ -4,6 +4,7 @@ import hmacSHA256 = require('crypto-js/hmac-sha256');
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';
 import { Spot } from './lib/Spot';
+import { Margin } from './lib/Margin';
 
 export namespace Binance {
   export class Api {
@@ -145,6 +146,36 @@ export namespace Binance {
     spotQueryOpenOCO = Spot.prototype.spotQueryOpenOCO;
     spotAccountInformation = Spot.prototype.spotAccountInformation;
     spotAccountTradeList = Spot.prototype.spotAccountTradeList;
+
+    /** Margin endpoints */
+    marginCrossMarginAccountTransfer = Margin.prototype.marginCrossMarginAccountTransfer;
+    marginAccountBorrow = Margin.prototype.marginAccountBorrow;
+    marginAccountRepay = Margin.prototype.marginAccountRepay;
+    marginQueryMarginAsset = Margin.prototype.marginQueryMarginAsset;
+    marginQueryCrossMarginPair = Margin.prototype.marginQueryCrossMarginPair;
+    marginGetAllCrossMarginAssets = Margin.prototype.marginGetAllCrossMarginAssets;
+    marginGetAllCrossMarginPairs = Margin.prototype.marginGetAllCrossMarginPairs;
+    marginQueryMarginPriceIndex = Margin.prototype.marginQueryMarginPriceIndex;
+    marginAccounNewOrder = Margin.prototype.marginAccounNewOrder;
+    marginAccounCancelOrder = Margin.prototype.marginAccounCancelOrder;
+    marginGetCrossMarginTransferHistory = Margin.prototype.marginGetCrossMarginTransferHistory;
+    marginQueryLoanRecord = Margin.prototype.marginQueryLoanRecord;
+    marginQueryRepayRecord = Margin.prototype.marginQueryRepayRecord;
+    marginGetInterestHistory = Margin.prototype.marginGetInterestHistory;
+    marginGetForceLiquidationHistory = Margin.prototype.marginGetForceLiquidationHistory;
+    marginQueryCrossMarginAccountDetails = Margin.prototype.marginQueryCrossMarginAccountDetails;
+    marginQueryMarginAccountOrder = Margin.prototype.marginQueryMarginAccountOrder;
+    marginQueryMarginAccountOpenOrder = Margin.prototype.marginQueryMarginAccountOpenOrder;
+    marginQueryMarginAccountAllOrder = Margin.prototype.marginQueryMarginAccountAllOrder;
+    marginQueryMarginAccountTradeList = Margin.prototype.marginQueryMarginAccountTradeList;
+    marginQueryMaxBorrow = Margin.prototype.marginQueryMaxBorrow;
+    marginQueryMaxTransferOutAmount = Margin.prototype.marginQueryMaxTransferOutAmount;
+    marginCreateIsolatedMarginAccount = Margin.prototype.marginCreateIsolatedMarginAccount;
+    marginIsolatedMarginAccountTransfer = Margin.prototype.marginIsolatedMarginAccountTransfer;
+    marginGetIsolatedMarginTransferHistory = Margin.prototype.marginGetIsolatedMarginTransferHistory;
+    marginQueryIsolatedMarginAccountInfo = Margin.prototype.marginQueryIsolatedMarginAccountInfo;
+    marginQueryIsolatedMarginSymbol = Margin.prototype.marginQueryIsolatedMarginSymbol;
+    marginGetAllIsolatedMarginSymbol = Margin.prototype.marginGetAllIsolatedMarginSymbol;
   }
 
   export interface IRequest {

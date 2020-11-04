@@ -1,6 +1,9 @@
 import { Binance } from '../Binance';
 
 export class Margin {
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginCrossMarginAccountTransfer(this: Binance.Api, params: IMarginCrossMarginAccountTransferParameters) {
     return this.sendRequest<IMarginCrossMarginAccountTransferParameters, IMarginCrossMarginAccountTransfer>(
       '/sapi/v1/margin/transfer',
@@ -10,6 +13,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginAccountBorrow(this: Binance.Api, params: IMarginAccountBorrowParameters) {
     return this.sendRequest<IMarginAccountBorrowParameters, IMarginAccountBorrow>(
       '/sapi/v1/margin/load',
@@ -19,6 +25,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginAccountRepay(this: Binance.Api, params: IMarginAccountRepayParameters) {
     return this.sendRequest<IMarginAccountRepayParameters, IMarginAccountRepay>(
       '/sapi/v1/margin/repay',
@@ -73,6 +82,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginAccounNewOrder(this: Binance.Api, params: IMarginAccountNewOrderParameters) {
     return this.sendRequest<IMarginAccountNewOrderParameters, IMarginAccountNewOrder>(
       '/sapi/v1/margin/order',
@@ -82,6 +94,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginAccounCancelOrder(this: Binance.Api, params: IMarginAccountCancelOrderParameters) {
     return this.sendRequest<IMarginAccountCancelOrderParameters, IMarginAccountCancelOrder>(
       '/sapi/v1/margin/order',
@@ -91,7 +106,7 @@ export class Margin {
     );
   }
 
-  marginGetCrossMarginTransferHistory(this: Binance.Api, params: IMarginGetCrossMarginTransferHistoryParameters) {
+  marginGetCrossMarginTransferHistory(this: Binance.Api, params: IMarginGetCrossMarginTransferHistoryParameters = {}) {
     return this.sendRequest<IMarginGetCrossMarginTransferHistoryParameters, IMarginGetCrossMarginTransferHistory>(
       '/sapi/v1/margin/transfer',
       params,
@@ -127,7 +142,7 @@ export class Margin {
     );
   }
 
-  marginGetForceLiquidationHistory(this: Binance.Api, params: IMarginGetForceLiquidationHistoryParameters) {
+  marginGetForceLiquidationHistory(this: Binance.Api, params: IMarginGetForceLiquidationHistoryParameters = {}) {
     return this.sendRequest<IMarginGetForceLiquidationHistoryParameters, IMarginGetForceLiquidationHistory>(
       '/sapi/v1/margin/forceLiquidationRec',
       params,
@@ -136,7 +151,7 @@ export class Margin {
     );
   }
 
-  marginQueryCrossMarginAccountDetails(this: Binance.Api, params: IMarginQueryCrossMarginAccountDetailsParameters) {
+  marginQueryCrossMarginAccountDetails(this: Binance.Api, params: IMarginQueryCrossMarginAccountDetailsParameters = {}) {
     return this.sendRequest<IMarginQueryCrossMarginAccountDetailsParameters, IMarginQueryCrossMarginAccountDetails>(
       '/sapi/v1/margin/account',
       params,
@@ -145,6 +160,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginQueryMarginAccountOrder(this: Binance.Api, params: IMarginQueryMarginAccountOrderParameters) {
     return this.sendRequest<IMarginQueryMarginAccountOrderParameters, IMarginQueryMarginAccountOrder>(
       '/sapi/v1/margin/order',
@@ -199,6 +217,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginCreateIsolatedMarginAccount(this: Binance.Api, params: IMarginCreateIsolatedMarginAccountParameters) {
     return this.sendRequest<IMarginCreateIsolatedMarginAccountParameters, IMarginCreateIsolatedMarginAccount>(
       '/sapi/v1/margin/isolated/create',
@@ -208,6 +229,9 @@ export class Margin {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   marginIsolatedMarginAccountTransfer(this: Binance.Api, params: IMarginIsolatedMarginAccountTransferParameters) {
     return this.sendRequest<IMarginIsolatedMarginAccountTransferParameters, IMarginIsolatedMarginAccountTransfer>(
       '/sapi/v1/margin/isolated/transfer',
@@ -226,7 +250,7 @@ export class Margin {
     );
   }
 
-  marginQueryIsolatedMarginAccountInfo(this: Binance.Api, params: IMarginQueryIsolatedMarginAccountInfoParameters) {
+  marginQueryIsolatedMarginAccountInfo(this: Binance.Api, params: IMarginQueryIsolatedMarginAccountInfoParameters = {}) {
     return this.sendRequest<IMarginQueryIsolatedMarginAccountInfoParameters, IMarginQueryIsolatedMarginAccountInfo>(
       '/sapi/v1/margin/isolated/account',
       params,
@@ -289,7 +313,9 @@ export interface IMarginQueryMarginAsset {
   userMinRepay: string;
 }
 
-export type IMarginQueryCrossMarginPairParameters = IMarginQueryMarginAssetParameters;
+export interface IMarginQueryCrossMarginPairParameters extends Binance.IRequestParameters {
+  symbol: string;
+}
 
 export interface IMarginQueryCrossMarginPair {
   id: number;
@@ -601,7 +627,7 @@ export interface IMarginQueryMaxBorrowParameters extends Binance.IRequestParamet
 }
 
 export interface IMarginQueryMaxBorrow {
-  amout: string;
+  amount: string;
   borrowLimit: string;
 }
 

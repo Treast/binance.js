@@ -6,6 +6,7 @@ const hmacSHA256 = require("crypto-js/hmac-sha256");
 const Wallet_1 = require("./lib/Wallet");
 const Market_1 = require("./lib/Market");
 const Spot_1 = require("./lib/Spot");
+const Margin_1 = require("./lib/Margin");
 var Binance;
 (function (Binance) {
     class Api {
@@ -58,6 +59,35 @@ var Binance;
             this.spotQueryOpenOCO = Spot_1.Spot.prototype.spotQueryOpenOCO;
             this.spotAccountInformation = Spot_1.Spot.prototype.spotAccountInformation;
             this.spotAccountTradeList = Spot_1.Spot.prototype.spotAccountTradeList;
+            /** Margin endpoints */
+            this.marginCrossMarginAccountTransfer = Margin_1.Margin.prototype.marginCrossMarginAccountTransfer;
+            this.marginAccountBorrow = Margin_1.Margin.prototype.marginAccountBorrow;
+            this.marginAccountRepay = Margin_1.Margin.prototype.marginAccountRepay;
+            this.marginQueryMarginAsset = Margin_1.Margin.prototype.marginQueryMarginAsset;
+            this.marginQueryCrossMarginPair = Margin_1.Margin.prototype.marginQueryCrossMarginPair;
+            this.marginGetAllCrossMarginAssets = Margin_1.Margin.prototype.marginGetAllCrossMarginAssets;
+            this.marginGetAllCrossMarginPairs = Margin_1.Margin.prototype.marginGetAllCrossMarginPairs;
+            this.marginQueryMarginPriceIndex = Margin_1.Margin.prototype.marginQueryMarginPriceIndex;
+            this.marginAccounNewOrder = Margin_1.Margin.prototype.marginAccounNewOrder;
+            this.marginAccounCancelOrder = Margin_1.Margin.prototype.marginAccounCancelOrder;
+            this.marginGetCrossMarginTransferHistory = Margin_1.Margin.prototype.marginGetCrossMarginTransferHistory;
+            this.marginQueryLoanRecord = Margin_1.Margin.prototype.marginQueryLoanRecord;
+            this.marginQueryRepayRecord = Margin_1.Margin.prototype.marginQueryRepayRecord;
+            this.marginGetInterestHistory = Margin_1.Margin.prototype.marginGetInterestHistory;
+            this.marginGetForceLiquidationHistory = Margin_1.Margin.prototype.marginGetForceLiquidationHistory;
+            this.marginQueryCrossMarginAccountDetails = Margin_1.Margin.prototype.marginQueryCrossMarginAccountDetails;
+            this.marginQueryMarginAccountOrder = Margin_1.Margin.prototype.marginQueryMarginAccountOrder;
+            this.marginQueryMarginAccountOpenOrder = Margin_1.Margin.prototype.marginQueryMarginAccountOpenOrder;
+            this.marginQueryMarginAccountAllOrder = Margin_1.Margin.prototype.marginQueryMarginAccountAllOrder;
+            this.marginQueryMarginAccountTradeList = Margin_1.Margin.prototype.marginQueryMarginAccountTradeList;
+            this.marginQueryMaxBorrow = Margin_1.Margin.prototype.marginQueryMaxBorrow;
+            this.marginQueryMaxTransferOutAmount = Margin_1.Margin.prototype.marginQueryMaxTransferOutAmount;
+            this.marginCreateIsolatedMarginAccount = Margin_1.Margin.prototype.marginCreateIsolatedMarginAccount;
+            this.marginIsolatedMarginAccountTransfer = Margin_1.Margin.prototype.marginIsolatedMarginAccountTransfer;
+            this.marginGetIsolatedMarginTransferHistory = Margin_1.Margin.prototype.marginGetIsolatedMarginTransferHistory;
+            this.marginQueryIsolatedMarginAccountInfo = Margin_1.Margin.prototype.marginQueryIsolatedMarginAccountInfo;
+            this.marginQueryIsolatedMarginSymbol = Margin_1.Margin.prototype.marginQueryIsolatedMarginSymbol;
+            this.marginGetAllIsolatedMarginSymbol = Margin_1.Margin.prototype.marginGetAllIsolatedMarginSymbol;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)

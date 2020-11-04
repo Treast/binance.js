@@ -3,12 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Margin = void 0;
 const Binance_1 = require("../Binance");
 class Margin {
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginCrossMarginAccountTransfer(params) {
         return this.sendRequest('/sapi/v1/margin/transfer', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.MARGIN);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccountBorrow(params) {
         return this.sendRequest('/sapi/v1/margin/load', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.MARGIN);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccountRepay(params) {
         return this.sendRequest('/sapi/v1/margin/repay', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.MARGIN);
     }
@@ -27,13 +36,19 @@ class Margin {
     marginQueryMarginPriceIndex(params) {
         return this.sendRequest('/sapi/v1/margin/priceIndex', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.MARKET_DATA);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccounNewOrder(params) {
         return this.sendRequest('/sapi/v1/margin/order', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.TRADE);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccounCancelOrder(params) {
         return this.sendRequest('/sapi/v1/margin/order', params, Binance_1.Binance.ERequestMethod.DELETE, Binance_1.Binance.ESecurityType.TRADE);
     }
-    marginGetCrossMarginTransferHistory(params) {
+    marginGetCrossMarginTransferHistory(params = {}) {
         return this.sendRequest('/sapi/v1/margin/transfer', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
     marginQueryLoanRecord(params) {
@@ -45,12 +60,15 @@ class Margin {
     marginGetInterestHistory(params) {
         return this.sendRequest('/sapi/v1/margin/interestHistory', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
-    marginGetForceLiquidationHistory(params) {
+    marginGetForceLiquidationHistory(params = {}) {
         return this.sendRequest('/sapi/v1/margin/forceLiquidationRec', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
-    marginQueryCrossMarginAccountDetails(params) {
+    marginQueryCrossMarginAccountDetails(params = {}) {
         return this.sendRequest('/sapi/v1/margin/account', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginQueryMarginAccountOrder(params) {
         return this.sendRequest('/sapi/v1/margin/order', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
@@ -69,16 +87,22 @@ class Margin {
     marginQueryMaxTransferOutAmount(params) {
         return this.sendRequest('/sapi/v1/margin/maxTransferable', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginCreateIsolatedMarginAccount(params) {
         return this.sendRequest('/sapi/v1/margin/isolated/create', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.MARGIN);
     }
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginIsolatedMarginAccountTransfer(params) {
         return this.sendRequest('/sapi/v1/margin/isolated/transfer', params, Binance_1.Binance.ERequestMethod.POST, Binance_1.Binance.ESecurityType.MARGIN);
     }
     marginGetIsolatedMarginTransferHistory(params) {
         return this.sendRequest('/sapi/v1/margin/isolated/transfer', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
-    marginQueryIsolatedMarginAccountInfo(params) {
+    marginQueryIsolatedMarginAccountInfo(params = {}) {
         return this.sendRequest('/sapi/v1/margin/isolated/account', params, Binance_1.Binance.ERequestMethod.GET, Binance_1.Binance.ESecurityType.USER_DATA);
     }
     marginQueryIsolatedMarginSymbol(params) {

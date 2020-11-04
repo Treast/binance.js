@@ -7,14 +7,26 @@ export declare class Wallet {
     walletSystemStatus(this: Binance.Api): Promise<IWalletSystemStatus>;
     walletApiTradingStatus(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletApiTradingStatus>;
     walletDustLog(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletDustLog>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     walletDustTransfer(this: Binance.Api, params: IWalletDustTransferParameters): Promise<IWalletDustTransfer>;
     walletTradeFee(this: Binance.Api, params?: IWalletTradeFeeParameters): Promise<IWalletTradeFee>;
     walletAssetDetail(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAssetDetail>;
     walletAllCoins(this: Binance.Api, params?: Binance.IRequestParameters): Promise<IWalletAllCoins[]>;
     walletDailyAccountSnapshot(this: Binance.Api, params: IWalletDailyAccountSnapshotParameters): Promise<IWalletDailyAccountSnapshot>;
     walletAssetDividend(this: Binance.Api, params?: IWalletAssetDividendParameters): Promise<IWalletAssetDividend>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     walletWithdraw(this: Binance.Api, params: IWalletWithdrawParameters): Promise<IWalletWithdraw>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     walletDisableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters): Promise<Binance.IResponseEmpty>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     walletEnableFastWithdrawSwitch(this: Binance.Api, params: Binance.IRequestParameters): Promise<Binance.IResponseEmpty>;
 }
 export interface IWalletDepositHistoryParameters extends Binance.IRequestParameters {

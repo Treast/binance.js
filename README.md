@@ -61,7 +61,7 @@ binance
  - [x] Wallet endpoints
  - [x] Market endpoints
  - [x] Spot endpoints
- - [ ] Margin endpoints
+ - [x] Margin endpoints
  - [ ] Saving endpoints
  - [ ] Futures endpoints
  - [ ] Streams

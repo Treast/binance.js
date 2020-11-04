@@ -1,31 +1,55 @@
 import { Binance } from '../Binance';
 export declare class Margin {
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginCrossMarginAccountTransfer(this: Binance.Api, params: IMarginCrossMarginAccountTransferParameters): Promise<IMarginCrossMarginAccountTransfer>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccountBorrow(this: Binance.Api, params: IMarginAccountBorrowParameters): Promise<IMarginCrossMarginAccountTransfer>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccountRepay(this: Binance.Api, params: IMarginAccountRepayParameters): Promise<IMarginCrossMarginAccountTransfer>;
     marginQueryMarginAsset(this: Binance.Api, params: IMarginQueryMarginAssetParameters): Promise<IMarginQueryMarginAsset>;
     marginQueryCrossMarginPair(this: Binance.Api, params: IMarginQueryCrossMarginPairParameters): Promise<IMarginQueryCrossMarginPair>;
     marginGetAllCrossMarginAssets(this: Binance.Api, params?: Binance.IResponseEmpty): Promise<IMarginQueryMarginAsset[]>;
     marginGetAllCrossMarginPairs(this: Binance.Api, params?: Binance.IResponseEmpty): Promise<IMarginQueryCrossMarginPair[]>;
     marginQueryMarginPriceIndex(this: Binance.Api, params: IMarginQueryMarginPriceIndexParameters): Promise<IMarginQueryMarginPriceIndex>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccounNewOrder(this: Binance.Api, params: IMarginAccountNewOrderParameters): Promise<IMarginAccountNewOrder>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginAccounCancelOrder(this: Binance.Api, params: IMarginAccountCancelOrderParameters): Promise<IMarginAccountCancelOrder>;
-    marginGetCrossMarginTransferHistory(this: Binance.Api, params: IMarginGetCrossMarginTransferHistoryParameters): Promise<IMarginGetCrossMarginTransferHistory>;
+    marginGetCrossMarginTransferHistory(this: Binance.Api, params?: IMarginGetCrossMarginTransferHistoryParameters): Promise<IMarginGetCrossMarginTransferHistory>;
     marginQueryLoanRecord(this: Binance.Api, params: IMarginQueryLoanRecordParameters): Promise<IMarginQueryLoanRecord>;
     marginQueryRepayRecord(this: Binance.Api, params: IMarginQueryRepayRecordParameters): Promise<IMarginQueryRepayRecord>;
     marginGetInterestHistory(this: Binance.Api, params: IMarginGetInterestHistoryParameters): Promise<IMarginGetInterestHistory>;
-    marginGetForceLiquidationHistory(this: Binance.Api, params: IMarginGetForceLiquidationHistoryParameters): Promise<IMarginGetForceLiquidationHistory>;
-    marginQueryCrossMarginAccountDetails(this: Binance.Api, params: IMarginQueryCrossMarginAccountDetailsParameters): Promise<IMarginQueryCrossMarginAccountDetails>;
+    marginGetForceLiquidationHistory(this: Binance.Api, params?: IMarginGetForceLiquidationHistoryParameters): Promise<IMarginGetForceLiquidationHistory>;
+    marginQueryCrossMarginAccountDetails(this: Binance.Api, params?: IMarginQueryCrossMarginAccountDetailsParameters): Promise<IMarginQueryCrossMarginAccountDetails>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginQueryMarginAccountOrder(this: Binance.Api, params: IMarginQueryMarginAccountOrderParameters): Promise<IMarginQueryMarginAccountOrder>;
     marginQueryMarginAccountOpenOrder(this: Binance.Api, params: IMarginQueryMarginAccountOpenOrderParameters): Promise<IMarginQueryMarginAccountOpenOrder[]>;
     marginQueryMarginAccountAllOrder(this: Binance.Api, params: IMarginQueryMarginAccountAllOrderParameters): Promise<IMarginQueryMarginAccountOpenOrder[]>;
     marginQueryMarginAccountTradeList(this: Binance.Api, params: IMarginQueryMarginAccountTradeListParameters): Promise<IMarginQueryMarginAccountTradeList[]>;
     marginQueryMaxBorrow(this: Binance.Api, params: IMarginQueryMaxBorrowParameters): Promise<IMarginQueryMaxBorrow>;
     marginQueryMaxTransferOutAmount(this: Binance.Api, params: IMarginQueryMaxTransferOutAmountParameters): Promise<IMarginQueryMaxTransferOutAmount>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginCreateIsolatedMarginAccount(this: Binance.Api, params: IMarginCreateIsolatedMarginAccountParameters): Promise<IMarginCreateIsolatedMarginAccount>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     marginIsolatedMarginAccountTransfer(this: Binance.Api, params: IMarginIsolatedMarginAccountTransferParameters): Promise<IMarginIsolatedMarginAccountTransfer>;
     marginGetIsolatedMarginTransferHistory(this: Binance.Api, params: IMarginGetIsolatedMarginTransferHistoryParameters): Promise<IMarginGetIsolatedMarginTransferHistory>;
-    marginQueryIsolatedMarginAccountInfo(this: Binance.Api, params: IMarginQueryIsolatedMarginAccountInfoParameters): Promise<IMarginQueryIsolatedMarginAccountInfo>;
+    marginQueryIsolatedMarginAccountInfo(this: Binance.Api, params?: IMarginQueryIsolatedMarginAccountInfoParameters): Promise<IMarginQueryIsolatedMarginAccountInfo>;
     marginQueryIsolatedMarginSymbol(this: Binance.Api, params: IMarginQueryIsolatedMarginSymbolParameters): Promise<IMarginQueryIsolatedMarginSymbol>;
     marginGetAllIsolatedMarginSymbol(this: Binance.Api, params?: Binance.IResponseEmpty): Promise<IMarginQueryIsolatedMarginSymbol[]>;
 }
@@ -57,7 +81,9 @@ export interface IMarginQueryMarginAsset {
     userMinBorrow: string;
     userMinRepay: string;
 }
-export declare type IMarginQueryCrossMarginPairParameters = IMarginQueryMarginAssetParameters;
+export interface IMarginQueryCrossMarginPairParameters extends Binance.IRequestParameters {
+    symbol: string;
+}
 export interface IMarginQueryCrossMarginPair {
     id: number;
     symbol: string;
@@ -332,7 +358,7 @@ export interface IMarginQueryMaxBorrowParameters extends Binance.IRequestParamet
     isolatedSymbol?: string;
 }
 export interface IMarginQueryMaxBorrow {
-    amout: string;
+    amount: string;
     borrowLimit: string;
 }
 export declare type IMarginQueryMaxTransferOutAmountParameters = IMarginQueryMaxBorrowParameters;

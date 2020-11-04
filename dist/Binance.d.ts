@@ -55,6 +55,35 @@ export declare namespace Binance {
         spotQueryOpenOCO: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Spot").ISpotQueryOrder[]>;
         spotAccountInformation: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Spot").ISpotAccountInformation>;
         spotAccountTradeList: (this: Api, params: import("./lib/Spot").ISpotAccountTradeListParameters) => Promise<import("./lib/Spot").ISpotAccountTradeList[]>;
+        /** Margin endpoints */
+        marginCrossMarginAccountTransfer: (this: Api, params: import("./lib/Margin").IMarginCrossMarginAccountTransferParameters) => Promise<import("./lib/Margin").IMarginCrossMarginAccountTransfer>;
+        marginAccountBorrow: (this: Api, params: import("./lib/Margin").IMarginAccountBorrowParameters) => Promise<import("./lib/Margin").IMarginCrossMarginAccountTransfer>;
+        marginAccountRepay: (this: Api, params: import("./lib/Margin").IMarginAccountBorrowParameters) => Promise<import("./lib/Margin").IMarginCrossMarginAccountTransfer>;
+        marginQueryMarginAsset: (this: Api, params: import("./lib/Margin").IMarginQueryMarginAssetParameters) => Promise<import("./lib/Margin").IMarginQueryMarginAsset>;
+        marginQueryCrossMarginPair: (this: Api, params: import("./lib/Margin").IMarginQueryCrossMarginPairParameters) => Promise<import("./lib/Margin").IMarginQueryCrossMarginPair>;
+        marginGetAllCrossMarginAssets: (this: Api, params?: IResponseEmpty) => Promise<import("./lib/Margin").IMarginQueryMarginAsset[]>;
+        marginGetAllCrossMarginPairs: (this: Api, params?: IResponseEmpty) => Promise<import("./lib/Margin").IMarginQueryCrossMarginPair[]>;
+        marginQueryMarginPriceIndex: (this: Api, params: import("./lib/Margin").IMarginQueryCrossMarginPairParameters) => Promise<import("./lib/Margin").IMarginQueryMarginPriceIndex>;
+        marginAccounNewOrder: (this: Api, params: import("./lib/Margin").IMarginAccountNewOrderParameters) => Promise<import("./lib/Margin").IMarginAccountNewOrder>;
+        marginAccounCancelOrder: (this: Api, params: import("./lib/Margin").IMarginAccountCancelOrderParameters) => Promise<import("./lib/Margin").IMarginAccountCancelOrder>;
+        marginGetCrossMarginTransferHistory: (this: Api, params?: import("./lib/Margin").IMarginGetCrossMarginTransferHistoryParameters) => Promise<import("./lib/Margin").IMarginGetCrossMarginTransferHistory>;
+        marginQueryLoanRecord: (this: Api, params: import("./lib/Margin").IMarginQueryLoanRecordParameters) => Promise<import("./lib/Margin").IMarginQueryLoanRecord>;
+        marginQueryRepayRecord: (this: Api, params: import("./lib/Margin").IMarginQueryLoanRecordParameters) => Promise<import("./lib/Margin").IMarginQueryRepayRecord>;
+        marginGetInterestHistory: (this: Api, params: import("./lib/Margin").IMarginQueryLoanRecordParameters) => Promise<import("./lib/Margin").IMarginGetInterestHistory>;
+        marginGetForceLiquidationHistory: (this: Api, params?: import("./lib/Margin").IMarginGetForceLiquidationHistoryParameters) => Promise<import("./lib/Margin").IMarginGetForceLiquidationHistory>;
+        marginQueryCrossMarginAccountDetails: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Margin").IMarginQueryCrossMarginAccountDetails>;
+        marginQueryMarginAccountOrder: (this: Api, params: import("./lib/Margin").IMarginQueryMarginAccountOrderParameters) => Promise<import("./lib/Margin").IMarginQueryMarginAccountOrder>;
+        marginQueryMarginAccountOpenOrder: (this: Api, params: import("./lib/Margin").IMarginQueryMarginAccountOpenOrderParameters) => Promise<import("./lib/Margin").IMarginQueryMarginAccountOpenOrder[]>;
+        marginQueryMarginAccountAllOrder: (this: Api, params: import("./lib/Margin").IMarginQueryMarginAccountAllOrderParameters) => Promise<import("./lib/Margin").IMarginQueryMarginAccountOpenOrder[]>;
+        marginQueryMarginAccountTradeList: (this: Api, params: import("./lib/Margin").IMarginQueryMarginAccountTradeListParameters) => Promise<import("./lib/Margin").IMarginQueryMarginAccountTradeList[]>;
+        marginQueryMaxBorrow: (this: Api, params: import("./lib/Margin").IMarginQueryMaxBorrowParameters) => Promise<import("./lib/Margin").IMarginQueryMaxBorrow>;
+        marginQueryMaxTransferOutAmount: (this: Api, params: import("./lib/Margin").IMarginQueryMaxBorrowParameters) => Promise<import("./lib/Margin").IMarginQueryMaxTransferOutAmount>;
+        marginCreateIsolatedMarginAccount: (this: Api, params: import("./lib/Margin").IMarginCreateIsolatedMarginAccountParameters) => Promise<import("./lib/Margin").IMarginCreateIsolatedMarginAccount>;
+        marginIsolatedMarginAccountTransfer: (this: Api, params: import("./lib/Margin").IMarginIsolatedMarginAccountTransferParameters) => Promise<import("./lib/Margin").IMarginIsolatedMarginAccountTransfer>;
+        marginGetIsolatedMarginTransferHistory: (this: Api, params: import("./lib/Margin").IMarginGetIsolatedMarginTransferHistoryParameters) => Promise<import("./lib/Margin").IMarginGetIsolatedMarginTransferHistory>;
+        marginQueryIsolatedMarginAccountInfo: (this: Api, params?: import("./lib/Margin").IMarginQueryIsolatedMarginAccountInfoParameters) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginAccountInfo>;
+        marginQueryIsolatedMarginSymbol: (this: Api, params: import("./lib/Margin").IMarginQueryIsolatedMarginSymbolParameters) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginSymbol>;
+        marginGetAllIsolatedMarginSymbol: (this: Api, params?: IResponseEmpty) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginSymbol[]>;
     }
     interface IRequest {
         headers: IRequestHeaders;

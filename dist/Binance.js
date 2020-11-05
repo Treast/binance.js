@@ -10,6 +10,7 @@ const Spot_1 = require("./lib/Spot");
 const Margin_1 = require("./lib/Margin");
 const Stream_1 = require("./lib/Stream");
 const Savings_1 = require("./lib/Savings");
+const Mining_1 = require("./lib/Mining");
 var Binance;
 (function (Binance) {
     class Api {
@@ -119,6 +120,14 @@ var Binance;
             this.savingsGetRedemptionRecord = Savings_1.Savings.prototype.savingsGetRedemptionRecord;
             this.savingsGetInterestHistory = Savings_1.Savings.prototype.savingsGetInterestHistory;
             this.savingsChangeFixedActivityPositionToDailyPosition = Savings_1.Savings.prototype.savingsChangeFixedActivityPositionToDailyPosition;
+            /** Mining endpoints */
+            this.miningAcquiringAlgorithm = Mining_1.Mining.prototype.miningAcquiringAlgorithm;
+            this.miningAcquiringCoinName = Mining_1.Mining.prototype.miningAcquiringCoinName;
+            this.miningRequestDetailMinerList = Mining_1.Mining.prototype.miningRequestDetailMinerList;
+            this.miningRequestMinerList = Mining_1.Mining.prototype.miningRequestMinerList;
+            this.miningRevenueList = Mining_1.Mining.prototype.miningRevenueList;
+            this.miningStatisticList = Mining_1.Mining.prototype.miningStatisticList;
+            this.miningAccountList = Mining_1.Mining.prototype.miningAccountList;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)

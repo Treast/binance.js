@@ -1,18 +1,18 @@
 import { Binance } from '../Binance';
 export declare class Savings {
-    savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters): Promise<ISavingsGetFlexibleProductList>;
+    savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters): Promise<ISavingsGetFlexibleProductList[]>;
     savingsGetLeftDailyPurchaseQuotaFlexibleProduct(this: Binance.Api, params: ISavingsGetLeftDailyPurchaseQuotaFlexibleProductParameters): Promise<ISavingsGetLeftDailyPurchaseQuotaFlexibleProduct>;
     savingsPurchaseFlexibleProduct(this: Binance.Api, params: ISavingsPurchaseFlexibleProductParameters): Promise<ISavingsPurchaseFlexibleProduct>;
     savingsGetLeftDailyRedemptionQuotaFlexibleProduct(this: Binance.Api, params: ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters): Promise<ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct>;
     savingsRedeemFlexibleProduct(this: Binance.Api, params: ISavingsRedeemFlexibleProductParameters): Promise<ISavingsRedeemFlexibleProduct>;
-    savingsGetFlexibleProductPosition(this: Binance.Api, params: ISavingsGetFlexibleProductPositionParameters): Promise<ISavingsGetFlexibleProductPosition>;
-    savingsGetFixedActivityProjectList(this: Binance.Api, params: ISavingsGetFixedActivityProjectListParameters): Promise<ISavingsGetFixedActivityProjectList>;
+    savingsGetFlexibleProductPosition(this: Binance.Api, params: ISavingsGetFlexibleProductPositionParameters): Promise<ISavingsGetFlexibleProductPosition[]>;
+    savingsGetFixedActivityProjectList(this: Binance.Api, params: ISavingsGetFixedActivityProjectListParameters): Promise<ISavingsGetFixedActivityProjectList[]>;
     savingsPurchaseFixedActivityProject(this: Binance.Api, params: ISavingsPurchaseFixedActivityProjectParameters): Promise<ISavingsPurchaseFixedActivityProject>;
-    savingsGetFixedActivityProjectPosition(this: Binance.Api, params: ISavingsGetFixedActivityProjectPositionParameters): Promise<ISavingsGetFixedActivityProjectPosition>;
+    savingsGetFixedActivityProjectPosition(this: Binance.Api, params: ISavingsGetFixedActivityProjectPositionParameters): Promise<ISavingsGetFixedActivityProjectPosition[]>;
     savingsLendingAccount(this: Binance.Api, params: ISavingsLendingAccountParameters): Promise<ISavingsLendingAccount>;
-    savingsGetPurchaseRecord(this: Binance.Api, params: ISavingsGetPurchaseRecordParameters): Promise<ISavingsGetPurchaseRecord>;
-    savingsGetRedemptionRecord(this: Binance.Api, params: ISavingsGetRedemptionRecordParameters): Promise<ISavingsGetRedemptionRecord>;
-    savingsGetInterestHistory(this: Binance.Api, params: ISavingsGetInterestHistoryParameters): Promise<ISavingsGetInterestHistory>;
+    savingsGetPurchaseRecord(this: Binance.Api, params: ISavingsGetPurchaseRecordParameters): Promise<ISavingsGetPurchaseRecord[]>;
+    savingsGetRedemptionRecord(this: Binance.Api, params: ISavingsGetRedemptionRecordParameters): Promise<ISavingsGetRedemptionRecord[]>;
+    savingsGetInterestHistory(this: Binance.Api, params: ISavingsGetInterestHistoryParameters): Promise<ISavingsGetInterestHistory[]>;
     savingsChangeFixedActivityPositionToDailyPosition(this: Binance.Api, params: ISavingsChangeFixedActivityPositionToDailyPositionParameters): Promise<ISavingsChangeFixedActivityPositionToDailyPosition>;
 }
 export declare enum ESavingsStatus {

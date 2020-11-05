@@ -8,6 +8,7 @@ import { Spot } from './lib/Spot';
 import { Margin } from './lib/Margin';
 import { Stream } from './lib/Stream';
 import { Savings } from './lib/Savings';
+import { Mining } from './lib/Mining';
 
 export namespace Binance {
   export class Api {
@@ -222,6 +223,15 @@ export namespace Binance {
     savingsGetRedemptionRecord = Savings.prototype.savingsGetRedemptionRecord;
     savingsGetInterestHistory = Savings.prototype.savingsGetInterestHistory;
     savingsChangeFixedActivityPositionToDailyPosition = Savings.prototype.savingsChangeFixedActivityPositionToDailyPosition;
+
+    /** Mining endpoints */
+    miningAcquiringAlgorithm = Mining.prototype.miningAcquiringAlgorithm;
+    miningAcquiringCoinName = Mining.prototype.miningAcquiringCoinName;
+    miningRequestDetailMinerList = Mining.prototype.miningRequestDetailMinerList;
+    miningRequestMinerList = Mining.prototype.miningRequestMinerList;
+    miningRevenueList = Mining.prototype.miningRevenueList;
+    miningStatisticList = Mining.prototype.miningStatisticList;
+    miningAccountList = Mining.prototype.miningAccountList;
   }
 
   export interface IRequest {

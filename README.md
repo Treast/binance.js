@@ -59,6 +59,7 @@ binance
 All functions have the same name as described on the official documentation and are prefixed by the domain: [https://binance-docs.github.io/apidocs/](https://binance-docs.github.io/apidocs/).
 
 **Example:** *Spot > New Order* becomes *spotNewOrder*
+
 **Example:** *Savings > Purchase Fixed/Activity Project* becomes *savingsPurchaseFixedActivityProject*
 
 ### Streams

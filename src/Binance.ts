@@ -9,6 +9,7 @@ import { Margin } from './lib/Margin';
 import { Stream } from './lib/Stream';
 import { Savings } from './lib/Savings';
 import { Mining } from './lib/Mining';
+import { Futures } from './lib/Futures';
 
 export namespace Binance {
   export class Api {
@@ -232,6 +233,21 @@ export namespace Binance {
     miningRevenueList = Mining.prototype.miningRevenueList;
     miningStatisticList = Mining.prototype.miningStatisticList;
     miningAccountList = Mining.prototype.miningAccountList;
+
+    /** Futures endpoints */
+    futuresNewFutureAccountTransfer = Futures.prototype.futuresNewFutureAccountTransfer;
+    futuresGetFutureAccountTransactionHistoryList = Futures.prototype.futuresGetFutureAccountTransactionHistoryList;
+    futuresBorrowCrossCollateral = Futures.prototype.futuresBorrowCrossCollateral;
+    futuresCrossCollateralBorrowHistory = Futures.prototype.futuresCrossCollateralBorrowHistory;
+    futuresRepayCrossCollateral = Futures.prototype.futuresRepayCrossCollateral;
+    futuresCrossCollateralRepaymentHistory = Futures.prototype.futuresCrossCollateralRepaymentHistory;
+    futuresCrossCollateralWallet = Futures.prototype.futuresCrossCollateralWallet;
+    futuresCrossCollateralInformation = Futures.prototype.futuresCrossCollateralInformation;
+    futuresCalculateRateAfterAdjustCrossCollateralLTV = Futures.prototype.futuresCalculateRateAfterAdjustCrossCollateralLTV;
+    futuresGetMaxAmountAdjustCrossCollateralLTV = Futures.prototype.futuresGetMaxAmountAdjustCrossCollateralLTV;
+    futuresAdjustCrossCollateralLTV = Futures.prototype.futuresAdjustCrossCollateralLTV;
+    futuresAdjustCrossCollateralLTVHistory = Futures.prototype.futuresAdjustCrossCollateralLTVHistory;
+    futuresCrossCollateralLiquidationHistory = Futures.prototype.futuresCrossCollateralLiquidationHistory;
   }
 
   export interface IRequest {
@@ -268,6 +284,7 @@ export namespace Binance {
     MARGIN = 'MARGIN',
     USER_STREAM = 'USER_STREAM',
     MARKET_DATA = 'MARKET_DATA',
+    FUTURES = 'FUTURES',
   }
 
   export enum EOrderType {
@@ -357,5 +374,12 @@ export namespace Binance {
     LOT_SIZE = 'LOT_SIZE',
     INTEREST_RATE = 'INTEREST_RATE',
     DURATION = 'DURATION',
+  }
+
+  export enum EFuturesType {
+    FROM_SPOT_TO_USDTFUTURS = 1,
+    FROM_USDTFUTURES_TO_SPOT = 2,
+    FROM_SPOT_TO_COINFUTURS = 3,
+    FROM_COINFUTURES_TO_SPOT = 4,
   }
 }

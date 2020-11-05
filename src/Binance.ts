@@ -7,6 +7,7 @@ import { Market } from './lib/Market';
 import { Spot } from './lib/Spot';
 import { Margin } from './lib/Margin';
 import { Stream } from './lib/Stream';
+import { Savings } from './lib/Savings';
 
 export namespace Binance {
   export class Api {
@@ -205,6 +206,22 @@ export namespace Binance {
     streamIndividualSymbolBookTicker = Stream.prototype.streamIndividualSymbolBookTicker;
     streamAllBookTickers = Stream.prototype.streamAllBookTickers;
     streamPartialBookDepth = Stream.prototype.streamPartialBookDepth;
+
+    /** Savings endpoints */
+    savingsGetFlexibleProductList = Savings.prototype.savingsGetFlexibleProductList;
+    savingsGetLeftDailyPurchaseQuotaFlexibleProduct = Savings.prototype.savingsGetLeftDailyPurchaseQuotaFlexibleProduct;
+    savingsPurchaseFlexibleProduct = Savings.prototype.savingsPurchaseFlexibleProduct;
+    savingsGetLeftDailyRedemptionQuotaFlexibleProduct = Savings.prototype.savingsGetLeftDailyRedemptionQuotaFlexibleProduct;
+    savingsRedeemFlexibleProduct = Savings.prototype.savingsRedeemFlexibleProduct;
+    savingsGetFlexibleProductPosition = Savings.prototype.savingsGetFlexibleProductPosition;
+    savingsGetFixedActivityProjectList = Savings.prototype.savingsGetFixedActivityProjectList;
+    savingsPurchaseFixedActivityProject = Savings.prototype.savingsPurchaseFixedActivityProject;
+    savingsGetFixedActivityProjectPosition = Savings.prototype.savingsGetFixedActivityProjectPosition;
+    savingsLendingAccount = Savings.prototype.savingsLendingAccount;
+    savingsGetPurchaseRecord = Savings.prototype.savingsGetPurchaseRecord;
+    savingsGetRedemptionRecord = Savings.prototype.savingsGetRedemptionRecord;
+    savingsGetInterestHistory = Savings.prototype.savingsGetInterestHistory;
+    savingsChangeFixedActivityPositionToDailyPosition = Savings.prototype.savingsChangeFixedActivityPositionToDailyPosition;
   }
 
   export interface IRequest {

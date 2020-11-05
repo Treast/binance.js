@@ -99,6 +99,21 @@ export declare namespace Binance {
         streamIndividualSymbolBookTicker: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
         streamAllBookTickers: (this: Api) => WebSocket | undefined;
         streamPartialBookDepth: (this: Api, params: import("./lib/Stream").IStreamPartialBookDepth) => WebSocket | undefined;
+        /** Savings endpoints */
+        savingsGetFlexibleProductList: (this: Api, params: import("./lib/Savings").ISavingsGetFlexibleProductListParameters) => Promise<import("./lib/Savings").ISavingsGetFlexibleProductList>;
+        savingsGetLeftDailyPurchaseQuotaFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsGetLeftDailyPurchaseQuotaFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsGetLeftDailyPurchaseQuotaFlexibleProduct>;
+        savingsPurchaseFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsPurchaseFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsPurchaseFlexibleProduct>;
+        savingsGetLeftDailyRedemptionQuotaFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct>;
+        savingsRedeemFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsRedeemFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsRedeemFlexibleProduct>;
+        savingsGetFlexibleProductPosition: (this: Api, params: import("./lib/Savings").ISavingsGetFlexibleProductPositionParameters) => Promise<import("./lib/Savings").ISavingsGetFlexibleProductPosition>;
+        savingsGetFixedActivityProjectList: (this: Api, params: import("./lib/Savings").ISavingsGetFixedActivityProjectListParameters) => Promise<import("./lib/Savings").ISavingsGetFixedActivityProjectList>;
+        savingsPurchaseFixedActivityProject: (this: Api, params: import("./lib/Savings").ISavingsPurchaseFixedActivityProjectParameters) => Promise<import("./lib/Savings").ISavingsPurchaseFixedActivityProject>;
+        savingsGetFixedActivityProjectPosition: (this: Api, params: import("./lib/Savings").ISavingsGetFixedActivityProjectPositionParameters) => Promise<import("./lib/Savings").ISavingsGetFixedActivityProjectPosition>;
+        savingsLendingAccount: (this: Api, params: import("./lib/Savings").ISavingsLendingAccountParameters) => Promise<import("./lib/Savings").ISavingsLendingAccount>;
+        savingsGetPurchaseRecord: (this: Api, params: import("./lib/Savings").ISavingsGetPurchaseRecordParameters) => Promise<import("./lib/Savings").ISavingsGetPurchaseRecord>;
+        savingsGetRedemptionRecord: (this: Api, params: import("./lib/Savings").ISavingsGetRedemptionRecordParameters) => Promise<import("./lib/Savings").ISavingsGetRedemptionRecord>;
+        savingsGetInterestHistory: (this: Api, params: import("./lib/Savings").ISavingsGetInterestHistoryParameters) => Promise<import("./lib/Savings").ISavingsGetInterestHistory>;
+        savingsChangeFixedActivityPositionToDailyPosition: (this: Api, params: import("./lib/Savings").ISavingsChangeFixedActivityPositionToDailyPositionParameters) => Promise<import("./lib/Savings").ISavingsChangeFixedActivityPositionToDailyPosition>;
     }
     interface IRequest {
         headers: IRequestHeaders;

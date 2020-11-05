@@ -9,6 +9,7 @@ const Market_1 = require("./lib/Market");
 const Spot_1 = require("./lib/Spot");
 const Margin_1 = require("./lib/Margin");
 const Stream_1 = require("./lib/Stream");
+const Savings_1 = require("./lib/Savings");
 var Binance;
 (function (Binance) {
     class Api {
@@ -103,6 +104,21 @@ var Binance;
             this.streamIndividualSymbolBookTicker = Stream_1.Stream.prototype.streamIndividualSymbolBookTicker;
             this.streamAllBookTickers = Stream_1.Stream.prototype.streamAllBookTickers;
             this.streamPartialBookDepth = Stream_1.Stream.prototype.streamPartialBookDepth;
+            /** Savings endpoints */
+            this.savingsGetFlexibleProductList = Savings_1.Savings.prototype.savingsGetFlexibleProductList;
+            this.savingsGetLeftDailyPurchaseQuotaFlexibleProduct = Savings_1.Savings.prototype.savingsGetLeftDailyPurchaseQuotaFlexibleProduct;
+            this.savingsPurchaseFlexibleProduct = Savings_1.Savings.prototype.savingsPurchaseFlexibleProduct;
+            this.savingsGetLeftDailyRedemptionQuotaFlexibleProduct = Savings_1.Savings.prototype.savingsGetLeftDailyRedemptionQuotaFlexibleProduct;
+            this.savingsRedeemFlexibleProduct = Savings_1.Savings.prototype.savingsRedeemFlexibleProduct;
+            this.savingsGetFlexibleProductPosition = Savings_1.Savings.prototype.savingsGetFlexibleProductPosition;
+            this.savingsGetFixedActivityProjectList = Savings_1.Savings.prototype.savingsGetFixedActivityProjectList;
+            this.savingsPurchaseFixedActivityProject = Savings_1.Savings.prototype.savingsPurchaseFixedActivityProject;
+            this.savingsGetFixedActivityProjectPosition = Savings_1.Savings.prototype.savingsGetFixedActivityProjectPosition;
+            this.savingsLendingAccount = Savings_1.Savings.prototype.savingsLendingAccount;
+            this.savingsGetPurchaseRecord = Savings_1.Savings.prototype.savingsGetPurchaseRecord;
+            this.savingsGetRedemptionRecord = Savings_1.Savings.prototype.savingsGetRedemptionRecord;
+            this.savingsGetInterestHistory = Savings_1.Savings.prototype.savingsGetInterestHistory;
+            this.savingsChangeFixedActivityPositionToDailyPosition = Savings_1.Savings.prototype.savingsChangeFixedActivityPositionToDailyPosition;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)

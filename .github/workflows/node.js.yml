@@ -12,6 +12,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      API_KEY: ${{secrets.API_KEY}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      TEST_API_KEY: ${{secrets.TEST_API_KEY}}
+      TEST_SECRET_KEY: ${{secrets.TEST_SECRET_KEY}}
 
     strategy:
       matrix:
@@ -20,11 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        env:
-          API_KEY: ${{secrets.API_KEY}}
-          SECRET_KEY: ${{secrets.SECRET_KEY}}
-          TEST_API_KEY: ${{secrets.TEST_API_KEY}}
-          TEST_SECRET_KEY: ${{secrets.TEST_SECRET_KEY}}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}

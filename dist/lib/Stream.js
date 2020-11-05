@@ -9,7 +9,7 @@ class Stream {
         return this.createStream(`/ws/${params.symbol.toLowerCase()}@trade`);
     }
     streamCandlestick(params) {
-        return this.createStream(`/ws/${params.symbol.toLowerCase()}@interval_${params.interval}`);
+        return this.createStream(`/ws/${params.symbol.toLowerCase()}@kline_${params.interval}`);
     }
     streamIndividualSymbolMiniTicker(params) {
         return this.createStream(`/ws/${params.symbol.toLowerCase()}@miniTicker`);
@@ -27,7 +27,7 @@ class Stream {
         return this.createStream(`/ws/${params.symbol.toLowerCase()}@bookTicker`);
     }
     streamAllBookTickers() {
-        return this.createStream(`/ws/$!bookTicker`);
+        return this.createStream(`/ws/!bookTicker`);
     }
     streamPartialBookDepth(params) {
         return this.createStream(`/ws/${params.symbol.toLowerCase()}@depth${params.levels}${params.updateSpeed ? `@${params.updateSpeed}ms` : ''}`);

@@ -10,7 +10,7 @@ export class Stream {
   }
 
   streamCandlestick(this: Binance.Api, params: IStreamCandlestickParameters) {
-    return this.createStream(`/ws/${params.symbol.toLowerCase()}@interval_${params.interval}`);
+    return this.createStream(`/ws/${params.symbol.toLowerCase()}@kline_${params.interval}`);
   }
 
   streamIndividualSymbolMiniTicker(this: Binance.Api, params: IStreamSymbolMiniTicker) {
@@ -34,7 +34,7 @@ export class Stream {
   }
 
   streamAllBookTickers(this: Binance.Api) {
-    return this.createStream(`/ws/$!bookTicker`);
+    return this.createStream(`/ws/!bookTicker`);
   }
 
   streamPartialBookDepth(this: Binance.Api, params: IStreamPartialBookDepth) {

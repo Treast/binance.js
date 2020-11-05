@@ -4,6 +4,7 @@ module.exports = {
   cache: true,
   verbose: true,
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  testTimeout: 20000,
   // preset configs
   // preset: 'ts-jest/presets/js-with-ts',
   // which files to test and which to ignore

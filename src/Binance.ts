@@ -196,7 +196,14 @@ export namespace Binance {
 
     /** Streams */
     streamAggregateTrade = Stream.prototype.streamAggregateTrade;
+    streamTrade = Stream.prototype.streamTrade;
+    streamCandlestick = Stream.prototype.streamCandlestick;
+    streamIndividualSymbolMiniTicker = Stream.prototype.streamIndividualSymbolMiniTicker;
     streamAllMarketMiniTickers = Stream.prototype.streamAllMarketMiniTickers;
+    streamIndividualSymbolTicker = Stream.prototype.streamIndividualSymbolTicker;
+    streamAllMarketTickers = Stream.prototype.streamAllMarketTickers;
+    streamIndividualSymbolBookTicker = Stream.prototype.streamIndividualSymbolBookTicker;
+    streamAllBookTickers = Stream.prototype.streamAllBookTickers;
     streamPartialBookDepth = Stream.prototype.streamPartialBookDepth;
   }
 

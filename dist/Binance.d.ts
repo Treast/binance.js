@@ -90,7 +90,14 @@ export declare namespace Binance {
         marginGetAllIsolatedMarginSymbol: (this: Api, params?: IResponseEmpty) => Promise<import("./lib/Margin").IMarginQueryIsolatedMarginSymbol[]>;
         /** Streams */
         streamAggregateTrade: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
+        streamTrade: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
+        streamCandlestick: (this: Api, params: import("./lib/Stream").IStreamCandlestickParameters) => WebSocket | undefined;
+        streamIndividualSymbolMiniTicker: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
         streamAllMarketMiniTickers: (this: Api) => WebSocket | undefined;
+        streamIndividualSymbolTicker: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
+        streamAllMarketTickers: (this: Api) => WebSocket | undefined;
+        streamIndividualSymbolBookTicker: (this: Api, params: import("./lib/Stream").IStreamAggregateTradeParameters) => WebSocket | undefined;
+        streamAllBookTickers: (this: Api) => WebSocket | undefined;
         streamPartialBookDepth: (this: Api, params: import("./lib/Stream").IStreamPartialBookDepth) => WebSocket | undefined;
     }
     interface IRequest {

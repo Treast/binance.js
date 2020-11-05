@@ -94,7 +94,14 @@ var Binance;
             this.marginGetAllIsolatedMarginSymbol = Margin_1.Margin.prototype.marginGetAllIsolatedMarginSymbol;
             /** Streams */
             this.streamAggregateTrade = Stream_1.Stream.prototype.streamAggregateTrade;
+            this.streamTrade = Stream_1.Stream.prototype.streamTrade;
+            this.streamCandlestick = Stream_1.Stream.prototype.streamCandlestick;
+            this.streamIndividualSymbolMiniTicker = Stream_1.Stream.prototype.streamIndividualSymbolMiniTicker;
             this.streamAllMarketMiniTickers = Stream_1.Stream.prototype.streamAllMarketMiniTickers;
+            this.streamIndividualSymbolTicker = Stream_1.Stream.prototype.streamIndividualSymbolTicker;
+            this.streamAllMarketTickers = Stream_1.Stream.prototype.streamAllMarketTickers;
+            this.streamIndividualSymbolBookTicker = Stream_1.Stream.prototype.streamIndividualSymbolBookTicker;
+            this.streamAllBookTickers = Stream_1.Stream.prototype.streamAllBookTickers;
             this.streamPartialBookDepth = Stream_1.Stream.prototype.streamPartialBookDepth;
             if (!apiKey)
                 throw new Error('A valid API key is required');

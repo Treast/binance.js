@@ -1,37 +1,34 @@
 import { Binance } from '../Binance';
 export declare class Savings {
-    savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters): Promise<ISavingsGetFlexibleProductList[]>;
+    savingsGetFlexibleProductList(this: Binance.Api, params?: ISavingsGetFlexibleProductListParameters): Promise<ISavingsGetFlexibleProductList[]>;
     savingsGetLeftDailyPurchaseQuotaFlexibleProduct(this: Binance.Api, params: ISavingsGetLeftDailyPurchaseQuotaFlexibleProductParameters): Promise<ISavingsGetLeftDailyPurchaseQuotaFlexibleProduct>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     savingsPurchaseFlexibleProduct(this: Binance.Api, params: ISavingsPurchaseFlexibleProductParameters): Promise<ISavingsPurchaseFlexibleProduct>;
     savingsGetLeftDailyRedemptionQuotaFlexibleProduct(this: Binance.Api, params: ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters): Promise<ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     savingsRedeemFlexibleProduct(this: Binance.Api, params: ISavingsRedeemFlexibleProductParameters): Promise<ISavingsRedeemFlexibleProduct>;
     savingsGetFlexibleProductPosition(this: Binance.Api, params: ISavingsGetFlexibleProductPositionParameters): Promise<ISavingsGetFlexibleProductPosition[]>;
     savingsGetFixedActivityProjectList(this: Binance.Api, params: ISavingsGetFixedActivityProjectListParameters): Promise<ISavingsGetFixedActivityProjectList[]>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     savingsPurchaseFixedActivityProject(this: Binance.Api, params: ISavingsPurchaseFixedActivityProjectParameters): Promise<ISavingsPurchaseFixedActivityProject>;
     savingsGetFixedActivityProjectPosition(this: Binance.Api, params: ISavingsGetFixedActivityProjectPositionParameters): Promise<ISavingsGetFixedActivityProjectPosition[]>;
-    savingsLendingAccount(this: Binance.Api, params: ISavingsLendingAccountParameters): Promise<ISavingsLendingAccount>;
+    savingsLendingAccount(this: Binance.Api, params?: ISavingsLendingAccountParameters): Promise<ISavingsLendingAccount>;
     savingsGetPurchaseRecord(this: Binance.Api, params: ISavingsGetPurchaseRecordParameters): Promise<ISavingsGetPurchaseRecord[]>;
     savingsGetRedemptionRecord(this: Binance.Api, params: ISavingsGetRedemptionRecordParameters): Promise<ISavingsGetRedemptionRecord[]>;
     savingsGetInterestHistory(this: Binance.Api, params: ISavingsGetInterestHistoryParameters): Promise<ISavingsGetInterestHistory[]>;
+    /**
+     * Warning: This function hasn't been tested.
+     */
     savingsChangeFixedActivityPositionToDailyPosition(this: Binance.Api, params: ISavingsChangeFixedActivityPositionToDailyPositionParameters): Promise<ISavingsChangeFixedActivityPositionToDailyPosition>;
 }
-export declare enum ESavingsStatus {
-    ALL = "ALL",
-    SUBSCRIBABLE = "SUBSCRIBABLE",
-    UNSUBSCRIBABLE = "UNSUBSCRIBABLE"
-}
-export declare enum ESavingsType {
-    FAST = "FAST",
-    NORMAL = "NORMAL"
-}
-export declare enum ESavingsSortBy {
-    START_TIME = "START_TIME",
-    LOT_SIZE = "LOT_SIZE",
-    INTEREST_RATE = "INTEREST_RATE",
-    DURATION = "DURATION"
-}
 export interface ISavingsGetFlexibleProductListParameters extends Binance.IRequestParameters {
-    status?: ESavingsStatus;
+    status?: Binance.ESavingsStatus;
     features?: 'ALL' | 'true';
 }
 export interface ISavingsGetFlexibleProductList {
@@ -64,7 +61,7 @@ export interface ISavingsPurchaseFlexibleProduct {
 }
 export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters extends Binance.IRequestParameters {
     productId: string;
-    type: ESavingsType;
+    type: Binance.ESavingsType;
 }
 export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct {
     asset: string;
@@ -75,7 +72,7 @@ export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct {
 export interface ISavingsRedeemFlexibleProductParameters extends Binance.IRequestParameters {
     productId: string;
     amount: number;
-    type: ESavingsType;
+    type: Binance.ESavingsType;
 }
 export interface ISavingsRedeemFlexibleProduct {
 }
@@ -101,9 +98,9 @@ export interface ISavingsGetFlexibleProductPosition {
 export interface ISavingsGetFixedActivityProjectListParameters extends Binance.IRequestParameters {
     asset?: string;
     type: 'ACTIVITY' | 'CUSTOMIZED_FIXED';
-    status?: ESavingsStatus;
+    status?: Binance.ESavingsStatus;
     isSortAsc?: boolean;
-    sortBy?: ESavingsSortBy;
+    sortBy?: Binance.ESavingsSortBy;
     current?: number;
     size?: number;
 }

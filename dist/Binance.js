@@ -284,5 +284,23 @@ var Binance;
         EInterval["INTERVAL_1w"] = "1w";
         EInterval["INTERVAL_1M"] = "1M";
     })(EInterval = Binance.EInterval || (Binance.EInterval = {}));
+    let ESavingsStatus;
+    (function (ESavingsStatus) {
+        ESavingsStatus["ALL"] = "ALL";
+        ESavingsStatus["SUBSCRIBABLE"] = "SUBSCRIBABLE";
+        ESavingsStatus["UNSUBSCRIBABLE"] = "UNSUBSCRIBABLE";
+    })(ESavingsStatus = Binance.ESavingsStatus || (Binance.ESavingsStatus = {}));
+    let ESavingsType;
+    (function (ESavingsType) {
+        ESavingsType["FAST"] = "FAST";
+        ESavingsType["NORMAL"] = "NORMAL";
+    })(ESavingsType = Binance.ESavingsType || (Binance.ESavingsType = {}));
+    let ESavingsSortBy;
+    (function (ESavingsSortBy) {
+        ESavingsSortBy["START_TIME"] = "START_TIME";
+        ESavingsSortBy["LOT_SIZE"] = "LOT_SIZE";
+        ESavingsSortBy["INTEREST_RATE"] = "INTEREST_RATE";
+        ESavingsSortBy["DURATION"] = "DURATION";
+    })(ESavingsSortBy = Binance.ESavingsSortBy || (Binance.ESavingsSortBy = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

@@ -100,7 +100,7 @@ export declare namespace Binance {
         streamAllBookTickers: (this: Api) => WebSocket | undefined;
         streamPartialBookDepth: (this: Api, params: import("./lib/Stream").IStreamPartialBookDepth) => WebSocket | undefined;
         /** Savings endpoints */
-        savingsGetFlexibleProductList: (this: Api, params: import("./lib/Savings").ISavingsGetFlexibleProductListParameters) => Promise<import("./lib/Savings").ISavingsGetFlexibleProductList[]>;
+        savingsGetFlexibleProductList: (this: Api, params?: import("./lib/Savings").ISavingsGetFlexibleProductListParameters) => Promise<import("./lib/Savings").ISavingsGetFlexibleProductList[]>;
         savingsGetLeftDailyPurchaseQuotaFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsGetLeftDailyPurchaseQuotaFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsGetLeftDailyPurchaseQuotaFlexibleProduct>;
         savingsPurchaseFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsPurchaseFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsPurchaseFlexibleProduct>;
         savingsGetLeftDailyRedemptionQuotaFlexibleProduct: (this: Api, params: import("./lib/Savings").ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters) => Promise<import("./lib/Savings").ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct>;
@@ -109,7 +109,7 @@ export declare namespace Binance {
         savingsGetFixedActivityProjectList: (this: Api, params: import("./lib/Savings").ISavingsGetFixedActivityProjectListParameters) => Promise<import("./lib/Savings").ISavingsGetFixedActivityProjectList[]>;
         savingsPurchaseFixedActivityProject: (this: Api, params: import("./lib/Savings").ISavingsPurchaseFixedActivityProjectParameters) => Promise<import("./lib/Savings").ISavingsPurchaseFixedActivityProject>;
         savingsGetFixedActivityProjectPosition: (this: Api, params: import("./lib/Savings").ISavingsGetFixedActivityProjectPositionParameters) => Promise<import("./lib/Savings").ISavingsGetFixedActivityProjectPosition[]>;
-        savingsLendingAccount: (this: Api, params: import("./lib/Savings").ISavingsLendingAccountParameters) => Promise<import("./lib/Savings").ISavingsLendingAccount>;
+        savingsLendingAccount: (this: Api, params?: import("./lib/Savings").ISavingsLendingAccountParameters) => Promise<import("./lib/Savings").ISavingsLendingAccount>;
         savingsGetPurchaseRecord: (this: Api, params: import("./lib/Savings").ISavingsGetPurchaseRecordParameters) => Promise<import("./lib/Savings").ISavingsGetPurchaseRecord[]>;
         savingsGetRedemptionRecord: (this: Api, params: import("./lib/Savings").ISavingsGetRedemptionRecordParameters) => Promise<import("./lib/Savings").ISavingsGetRedemptionRecord[]>;
         savingsGetInterestHistory: (this: Api, params: import("./lib/Savings").ISavingsGetInterestHistoryParameters) => Promise<import("./lib/Savings").ISavingsGetInterestHistory[]>;
@@ -216,5 +216,20 @@ export declare namespace Binance {
         INTERVAL_3d = "3d",
         INTERVAL_1w = "1w",
         INTERVAL_1M = "1M"
+    }
+    enum ESavingsStatus {
+        ALL = "ALL",
+        SUBSCRIBABLE = "SUBSCRIBABLE",
+        UNSUBSCRIBABLE = "UNSUBSCRIBABLE"
+    }
+    enum ESavingsType {
+        FAST = "FAST",
+        NORMAL = "NORMAL"
+    }
+    enum ESavingsSortBy {
+        START_TIME = "START_TIME",
+        LOT_SIZE = "LOT_SIZE",
+        INTEREST_RATE = "INTEREST_RATE",
+        DURATION = "DURATION"
     }
 }

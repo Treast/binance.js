@@ -1,7 +1,7 @@
 import { Binance } from '../Binance';
 
 export class Savings {
-  savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters) {
+  savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters = {}) {
     return this.sendRequest<ISavingsGetFlexibleProductListParameters, ISavingsGetFlexibleProductList[]>(
       '/sapi/v1/lending/daily/product/list',
       params,
@@ -19,6 +19,9 @@ export class Savings {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   savingsPurchaseFlexibleProduct(this: Binance.Api, params: ISavingsPurchaseFlexibleProductParameters) {
     return this.sendRequest<ISavingsPurchaseFlexibleProductParameters, ISavingsPurchaseFlexibleProduct>(
       '/sapi/v1/lending/daily/purchase',
@@ -37,6 +40,9 @@ export class Savings {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   savingsRedeemFlexibleProduct(this: Binance.Api, params: ISavingsRedeemFlexibleProductParameters) {
     return this.sendRequest<ISavingsRedeemFlexibleProductParameters, ISavingsRedeemFlexibleProduct>(
       '/sapi/v1/lending/daily/redeem',
@@ -64,6 +70,9 @@ export class Savings {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   savingsPurchaseFixedActivityProject(this: Binance.Api, params: ISavingsPurchaseFixedActivityProjectParameters) {
     return this.sendRequest<ISavingsPurchaseFixedActivityProjectParameters, ISavingsPurchaseFixedActivityProject>(
       '/sapi/v1/lending/customizedFixed/purchase',
@@ -82,7 +91,7 @@ export class Savings {
     );
   }
 
-  savingsLendingAccount(this: Binance.Api, params: ISavingsLendingAccountParameters) {
+  savingsLendingAccount(this: Binance.Api, params: ISavingsLendingAccountParameters = {}) {
     return this.sendRequest<ISavingsLendingAccountParameters, ISavingsLendingAccount>(
       '/sapi/v1/lending/union/account',
       params,
@@ -118,6 +127,9 @@ export class Savings {
     );
   }
 
+  /**
+   * Warning: This function hasn't been tested.
+   */
   savingsChangeFixedActivityPositionToDailyPosition(this: Binance.Api, params: ISavingsChangeFixedActivityPositionToDailyPositionParameters) {
     return this.sendRequest<ISavingsChangeFixedActivityPositionToDailyPositionParameters, ISavingsChangeFixedActivityPositionToDailyPosition>(
       '/sapi/v1/lending/positionChanged',
@@ -128,26 +140,8 @@ export class Savings {
   }
 }
 
-export enum ESavingsStatus {
-  ALL = 'ALL',
-  SUBSCRIBABLE = 'SUBSCRIBABLE',
-  UNSUBSCRIBABLE = 'UNSUBSCRIBABLE',
-}
-
-export enum ESavingsType {
-  FAST = 'FAST',
-  NORMAL = 'NORMAL',
-}
-
-export enum ESavingsSortBy {
-  START_TIME = 'START_TIME',
-  LOT_SIZE = 'LOT_SIZE',
-  INTEREST_RATE = 'INTEREST_RATE',
-  DURATION = 'DURATION',
-}
-
 export interface ISavingsGetFlexibleProductListParameters extends Binance.IRequestParameters {
-  status?: ESavingsStatus;
+  status?: Binance.ESavingsStatus;
   features?: 'ALL' | 'true';
 }
 
@@ -186,7 +180,7 @@ export interface ISavingsPurchaseFlexibleProduct {
 
 export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProductParameters extends Binance.IRequestParameters {
   productId: string;
-  type: ESavingsType;
+  type: Binance.ESavingsType;
 }
 
 export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct {
@@ -199,7 +193,7 @@ export interface ISavingsGetLeftDailyRedemptionQuotaFlexibleProduct {
 export interface ISavingsRedeemFlexibleProductParameters extends Binance.IRequestParameters {
   productId: string;
   amount: number;
-  type: ESavingsType;
+  type: Binance.ESavingsType;
 }
 
 export interface ISavingsRedeemFlexibleProduct {}
@@ -228,9 +222,9 @@ export interface ISavingsGetFlexibleProductPosition {
 export interface ISavingsGetFixedActivityProjectListParameters extends Binance.IRequestParameters {
   asset?: string;
   type: 'ACTIVITY' | 'CUSTOMIZED_FIXED';
-  status?: ESavingsStatus;
+  status?: Binance.ESavingsStatus;
   isSortAsc?: boolean;
-  sortBy?: ESavingsSortBy;
+  sortBy?: Binance.ESavingsSortBy;
   current?: number;
   size?: number;
 }

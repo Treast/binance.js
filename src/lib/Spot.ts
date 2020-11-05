@@ -130,9 +130,9 @@ export class Spot {
 
 export interface ISpotNewOrderParameters extends Binance.IRequestParameters {
   symbol: string;
-  side: Binance.EOrderSide; // Enum
-  type: Binance.EOrderType; // Enum
-  timeInForce?: Binance.EOrderTimeInForce; // Enum
+  side: Binance.EOrderSide;
+  type: Binance.EOrderType;
+  timeInForce?: Binance.EOrderTimeInForce;
   quantity?: number;
   quoteOrderQty?: number;
   price?: number;

@@ -65,7 +65,7 @@ export interface IMiningRequestMinerList {
     data: IMiningRequestMinerListData;
 }
 export interface IMiningRequestMinerListData {
-    workerDatas: IMiningRequestMinerListDataWorker[];
+    workerDatas?: IMiningRequestMinerListDataWorker[];
     totalNum: number;
     pageSize: number;
 }
@@ -92,7 +92,7 @@ export interface IMiningRevenueList {
     data: IMiningRevenueListData;
 }
 export interface IMiningRevenueListData {
-    accountProfits: IMiningRevenueListDataAccountProfit[];
+    accountProfits?: IMiningRevenueListDataAccountProfit[];
     totalNum: number;
     pageSize: number;
 }

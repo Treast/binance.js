@@ -340,4 +340,22 @@ export namespace Binance {
     INTERVAL_1w = '1w',
     INTERVAL_1M = '1M',
   }
+
+  export enum ESavingsStatus {
+    ALL = 'ALL',
+    SUBSCRIBABLE = 'SUBSCRIBABLE',
+    UNSUBSCRIBABLE = 'UNSUBSCRIBABLE',
+  }
+
+  export enum ESavingsType {
+    FAST = 'FAST',
+    NORMAL = 'NORMAL',
+  }
+
+  export enum ESavingsSortBy {
+    START_TIME = 'START_TIME',
+    LOT_SIZE = 'LOT_SIZE',
+    INTEREST_RATE = 'INTEREST_RATE',
+    DURATION = 'DURATION',
+  }
 }

@@ -59,6 +59,7 @@ binance
 All functions have the same name as described on the official documentation and are prefixed by the domain: [https://binance-docs.github.io/apidocs/](https://binance-docs.github.io/apidocs/).
 
 **Example:** *Spot > New Order* becomes *spotNewOrder*
+**Example:** *Savings > Purchase Fixed/Activity Project* becomes *savingsPurchaseFixedActivityProject*
 
 ### Streams
 Stream functions return a *Websocket* instance from the *ws* package. A cache is set up to prevent opening a same stream twice.
@@ -71,10 +72,10 @@ Stream functions return a *Websocket* instance from the *ws* package. A cache is
  - [x] Market endpoints
  - [x] Spot endpoints
  - [x] Margin endpoints
- - [ ] Saving endpoints
+ - [x] Saving endpoints
  - [ ] Futures endpoints
  - [x] Streams
- - [ ] Mining endpoints
+ - [x] Mining endpoints
  - [ ] BLVT endpoints
  - [ ] BSwap endpoints
  - [ ] Sub-accounts endpoints

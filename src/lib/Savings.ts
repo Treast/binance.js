@@ -2,7 +2,7 @@ import { Binance } from '../Binance';
 
 export class Savings {
   savingsGetFlexibleProductList(this: Binance.Api, params: ISavingsGetFlexibleProductListParameters) {
-    return this.sendRequest<ISavingsGetFlexibleProductListParameters, ISavingsGetFlexibleProductList>(
+    return this.sendRequest<ISavingsGetFlexibleProductListParameters, ISavingsGetFlexibleProductList[]>(
       '/sapi/v1/lending/daily/product/list',
       params,
       Binance.ERequestMethod.GET,
@@ -47,7 +47,7 @@ export class Savings {
   }
 
   savingsGetFlexibleProductPosition(this: Binance.Api, params: ISavingsGetFlexibleProductPositionParameters) {
-    return this.sendRequest<ISavingsGetFlexibleProductPositionParameters, ISavingsGetFlexibleProductPosition>(
+    return this.sendRequest<ISavingsGetFlexibleProductPositionParameters, ISavingsGetFlexibleProductPosition[]>(
       '/sapi/v1/lending/daily/token/position',
       params,
       Binance.ERequestMethod.GET,
@@ -56,7 +56,7 @@ export class Savings {
   }
 
   savingsGetFixedActivityProjectList(this: Binance.Api, params: ISavingsGetFixedActivityProjectListParameters) {
-    return this.sendRequest<ISavingsGetFixedActivityProjectListParameters, ISavingsGetFixedActivityProjectList>(
+    return this.sendRequest<ISavingsGetFixedActivityProjectListParameters, ISavingsGetFixedActivityProjectList[]>(
       '/sapi/v1/lending/project/list',
       params,
       Binance.ERequestMethod.GET,
@@ -74,7 +74,7 @@ export class Savings {
   }
 
   savingsGetFixedActivityProjectPosition(this: Binance.Api, params: ISavingsGetFixedActivityProjectPositionParameters) {
-    return this.sendRequest<ISavingsGetFixedActivityProjectPositionParameters, ISavingsGetFixedActivityProjectPosition>(
+    return this.sendRequest<ISavingsGetFixedActivityProjectPositionParameters, ISavingsGetFixedActivityProjectPosition[]>(
       '/sapi/v1/lending/project/position/list',
       params,
       Binance.ERequestMethod.GET,
@@ -92,7 +92,7 @@ export class Savings {
   }
 
   savingsGetPurchaseRecord(this: Binance.Api, params: ISavingsGetPurchaseRecordParameters) {
-    return this.sendRequest<ISavingsGetPurchaseRecordParameters, ISavingsGetPurchaseRecord>(
+    return this.sendRequest<ISavingsGetPurchaseRecordParameters, ISavingsGetPurchaseRecord[]>(
       '/sapi/v1/lending/union/purchaseRecord',
       params,
       Binance.ERequestMethod.GET,
@@ -101,7 +101,7 @@ export class Savings {
   }
 
   savingsGetRedemptionRecord(this: Binance.Api, params: ISavingsGetRedemptionRecordParameters) {
-    return this.sendRequest<ISavingsGetRedemptionRecordParameters, ISavingsGetRedemptionRecord>(
+    return this.sendRequest<ISavingsGetRedemptionRecordParameters, ISavingsGetRedemptionRecord[]>(
       '/sapi/v1/lending/union/redemptionRecord',
       params,
       Binance.ERequestMethod.GET,
@@ -110,7 +110,7 @@ export class Savings {
   }
 
   savingsGetInterestHistory(this: Binance.Api, params: ISavingsGetInterestHistoryParameters) {
-    return this.sendRequest<ISavingsGetInterestHistoryParameters, ISavingsGetInterestHistory>(
+    return this.sendRequest<ISavingsGetInterestHistoryParameters, ISavingsGetInterestHistory[]>(
       '/sapi/v1/lending/union/interestHistory',
       params,
       Binance.ERequestMethod.GET,

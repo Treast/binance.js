@@ -11,6 +11,9 @@ const Margin_1 = require("./lib/Margin");
 const Stream_1 = require("./lib/Stream");
 const Savings_1 = require("./lib/Savings");
 const Mining_1 = require("./lib/Mining");
+const Futures_1 = require("./lib/Futures");
+const BLVT_1 = require("./lib/BLVT");
+const BSwap_1 = require("./lib/BSwap");
 var Binance;
 (function (Binance) {
     class Api {
@@ -128,6 +131,35 @@ var Binance;
             this.miningRevenueList = Mining_1.Mining.prototype.miningRevenueList;
             this.miningStatisticList = Mining_1.Mining.prototype.miningStatisticList;
             this.miningAccountList = Mining_1.Mining.prototype.miningAccountList;
+            /** Futures endpoints */
+            this.futuresNewFutureAccountTransfer = Futures_1.Futures.prototype.futuresNewFutureAccountTransfer;
+            this.futuresGetFutureAccountTransactionHistoryList = Futures_1.Futures.prototype.futuresGetFutureAccountTransactionHistoryList;
+            this.futuresBorrowCrossCollateral = Futures_1.Futures.prototype.futuresBorrowCrossCollateral;
+            this.futuresCrossCollateralBorrowHistory = Futures_1.Futures.prototype.futuresCrossCollateralBorrowHistory;
+            this.futuresRepayCrossCollateral = Futures_1.Futures.prototype.futuresRepayCrossCollateral;
+            this.futuresCrossCollateralRepaymentHistory = Futures_1.Futures.prototype.futuresCrossCollateralRepaymentHistory;
+            this.futuresCrossCollateralWallet = Futures_1.Futures.prototype.futuresCrossCollateralWallet;
+            this.futuresCrossCollateralInformation = Futures_1.Futures.prototype.futuresCrossCollateralInformation;
+            this.futuresCalculateRateAfterAdjustCrossCollateralLTV = Futures_1.Futures.prototype.futuresCalculateRateAfterAdjustCrossCollateralLTV;
+            this.futuresGetMaxAmountAdjustCrossCollateralLTV = Futures_1.Futures.prototype.futuresGetMaxAmountAdjustCrossCollateralLTV;
+            this.futuresAdjustCrossCollateralLTV = Futures_1.Futures.prototype.futuresAdjustCrossCollateralLTV;
+            this.futuresAdjustCrossCollateralLTVHistory = Futures_1.Futures.prototype.futuresAdjustCrossCollateralLTVHistory;
+            this.futuresCrossCollateralLiquidationHistory = Futures_1.Futures.prototype.futuresCrossCollateralLiquidationHistory;
+            /** BLVT endpoints */
+            this.blvtGetBLVTInfo = BLVT_1.BLVT.prototype.blvtGetBLVTInfo;
+            this.blvtSubscribeBLVT = BLVT_1.BLVT.prototype.blvtSubscribeBLVT;
+            this.blvtQuerySubscriptionRecord = BLVT_1.BLVT.prototype.blvtQuerySubscriptionRecord;
+            this.blvtRedeemBLVT = BLVT_1.BLVT.prototype.blvtRedeemBLVT;
+            this.blvtQueryRedemptionRecord = BLVT_1.BLVT.prototype.blvtQueryRedemptionRecord;
+            /** BSwap endpoints */
+            this.bSwapListAllSwapPools = BSwap_1.BSwap.prototype.bSwapListAllSwapPools;
+            this.bSwapGetLiquidityInformationOfPool = BSwap_1.BSwap.prototype.bSwapGetLiquidityInformationOfPool;
+            this.bSwapAddLiquIBSwapAddLiquidity = BSwap_1.BSwap.prototype.bSwapAddLiquIBSwapAddLiquidity;
+            this.bSwapRemoveLiquidity = BSwap_1.BSwap.prototype.bSwapRemoveLiquidity;
+            this.bSwapGetLiquidityOperationRecord = BSwap_1.BSwap.prototype.bSwapGetLiquidityOperationRecord;
+            this.bSwapRequestQuote = BSwap_1.BSwap.prototype.bSwapRequestQuote;
+            this.bSwapSwap = BSwap_1.BSwap.prototype.bSwapSwap;
+            this.bSwapGetSwapHistory = BSwap_1.BSwap.prototype.bSwapGetSwapHistory;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)
@@ -212,6 +244,7 @@ var Binance;
         ESecurityType["MARGIN"] = "MARGIN";
         ESecurityType["USER_STREAM"] = "USER_STREAM";
         ESecurityType["MARKET_DATA"] = "MARKET_DATA";
+        ESecurityType["FUTURES"] = "FUTURES";
     })(ESecurityType = Binance.ESecurityType || (Binance.ESecurityType = {}));
     let EOrderType;
     (function (EOrderType) {
@@ -302,5 +335,12 @@ var Binance;
         ESavingsSortBy["INTEREST_RATE"] = "INTEREST_RATE";
         ESavingsSortBy["DURATION"] = "DURATION";
     })(ESavingsSortBy = Binance.ESavingsSortBy || (Binance.ESavingsSortBy = {}));
+    let EFuturesType;
+    (function (EFuturesType) {
+        EFuturesType[EFuturesType["FROM_SPOT_TO_USDTFUTURS"] = 1] = "FROM_SPOT_TO_USDTFUTURS";
+        EFuturesType[EFuturesType["FROM_USDTFUTURES_TO_SPOT"] = 2] = "FROM_USDTFUTURES_TO_SPOT";
+        EFuturesType[EFuturesType["FROM_SPOT_TO_COINFUTURS"] = 3] = "FROM_SPOT_TO_COINFUTURS";
+        EFuturesType[EFuturesType["FROM_COINFUTURES_TO_SPOT"] = 4] = "FROM_COINFUTURES_TO_SPOT";
+    })(EFuturesType = Binance.EFuturesType || (Binance.EFuturesType = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

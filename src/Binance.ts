@@ -10,6 +10,8 @@ import { Stream } from './lib/Stream';
 import { Savings } from './lib/Savings';
 import { Mining } from './lib/Mining';
 import { Futures } from './lib/Futures';
+import { BLVT } from './lib/BLVT';
+import { BSwap } from './lib/BSwap';
 
 export namespace Binance {
   export class Api {
@@ -248,6 +250,23 @@ export namespace Binance {
     futuresAdjustCrossCollateralLTV = Futures.prototype.futuresAdjustCrossCollateralLTV;
     futuresAdjustCrossCollateralLTVHistory = Futures.prototype.futuresAdjustCrossCollateralLTVHistory;
     futuresCrossCollateralLiquidationHistory = Futures.prototype.futuresCrossCollateralLiquidationHistory;
+
+    /** BLVT endpoints */
+    blvtGetBLVTInfo = BLVT.prototype.blvtGetBLVTInfo;
+    blvtSubscribeBLVT = BLVT.prototype.blvtSubscribeBLVT;
+    blvtQuerySubscriptionRecord = BLVT.prototype.blvtQuerySubscriptionRecord;
+    blvtRedeemBLVT = BLVT.prototype.blvtRedeemBLVT;
+    blvtQueryRedemptionRecord = BLVT.prototype.blvtQueryRedemptionRecord;
+
+    /** BSwap endpoints */
+    bSwapListAllSwapPools = BSwap.prototype.bSwapListAllSwapPools;
+    bSwapGetLiquidityInformationOfPool = BSwap.prototype.bSwapGetLiquidityInformationOfPool;
+    bSwapAddLiquIBSwapAddLiquidity = BSwap.prototype.bSwapAddLiquIBSwapAddLiquidity;
+    bSwapRemoveLiquidity = BSwap.prototype.bSwapRemoveLiquidity;
+    bSwapGetLiquidityOperationRecord = BSwap.prototype.bSwapGetLiquidityOperationRecord;
+    bSwapRequestQuote = BSwap.prototype.bSwapRequestQuote;
+    bSwapSwap = BSwap.prototype.bSwapSwap;
+    bSwapGetSwapHistory = BSwap.prototype.bSwapGetSwapHistory;
   }
 
   export interface IRequest {

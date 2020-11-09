@@ -122,6 +122,35 @@ export declare namespace Binance {
         miningRevenueList: (this: Api, params: import("./lib/Mining").IMiningRevenueListParameters) => Promise<import("./lib/Mining").IMiningRevenueList>;
         miningStatisticList: (this: Api, params: import("./lib/Mining").IMiningStatisticListParameters) => Promise<import("./lib/Mining").IMiningStatisticList>;
         miningAccountList: (this: Api, params: import("./lib/Mining").IMiningStatisticListParameters) => Promise<import("./lib/Mining").IMiningAccountList>;
+        /** Futures endpoints */
+        futuresNewFutureAccountTransfer: (this: Api, params: import("./lib/Futures").IFuturesNewFutureAccountTransferParameters) => Promise<import("./lib/Futures").IFuturesNewFutureAccountTransfer>;
+        futuresGetFutureAccountTransactionHistoryList: (this: Api, params: import("./lib/Futures").IFuturesGetFutureAccountTransactionHistoryListParameters) => Promise<import("./lib/Futures").IFuturesGetFutureAccountTransactionHistoryList>;
+        futuresBorrowCrossCollateral: (this: Api, params: import("./lib/Futures").IFuturesBorrowCrossCollateralParameters) => Promise<import("./lib/Futures").IFuturesBorrowCrossCollateral>;
+        futuresCrossCollateralBorrowHistory: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralBorrowHistoryParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralBorrowHistory>;
+        futuresRepayCrossCollateral: (this: Api, params: import("./lib/Futures").IFuturesRepayCrossCollateralParameters) => Promise<import("./lib/Futures").IFuturesRepayCrossCollateral>;
+        futuresCrossCollateralRepaymentHistory: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralRepaymentHistoryParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralRepaymentHistory>;
+        futuresCrossCollateralWallet: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralWallet>;
+        futuresCrossCollateralInformation: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralInformationParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralInformation>;
+        futuresCalculateRateAfterAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesCalculateRateAfterAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesCalculateRateAfterAdjustCrossCollateralLTV>;
+        futuresGetMaxAmountAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesGetMaxAmountAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesGetMaxAmountAdjustCrossCollateralLTV>;
+        futuresAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesAdjustCrossCollateralLTV>;
+        futuresAdjustCrossCollateralLTVHistory: (this: Api, params?: import("./lib/Futures").IFuturesAdjustCrossCollateralLTVHistoryParameters) => Promise<import("./lib/Futures").IFuturesAdjustCrossCollateralLTVHistory>;
+        futuresCrossCollateralLiquidationHistory: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralLiquidationHistoryParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralLiquidationHistory>;
+        /** BLVT endpoints */
+        blvtGetBLVTInfo: (this: Api, params?: import("./lib/BLVT").IBLVTGetBLVTInfoParameters) => Promise<import("./lib/BLVT").IBLVTGetBLVTInfo[]>;
+        blvtSubscribeBLVT: (this: Api, params: import("./lib/BLVT").IBLVTSubscribeBLVTParameters) => Promise<import("./lib/BLVT").IBLVTSubscribeBLVT>;
+        blvtQuerySubscriptionRecord: (this: Api, params?: import("./lib/BLVT").IBLVTQuerySubscriptionRecordParameters) => Promise<import("./lib/BLVT").IBLVTQuerySubscriptionRecord[]>;
+        blvtRedeemBLVT: (this: Api, params: import("./lib/BLVT").IBLVTRedeemBLVTParameters) => Promise<import("./lib/BLVT").IBLVTRedeemBLVT>;
+        blvtQueryRedemptionRecord: (this: Api, params: import("./lib/BLVT").IBLVTQueryRedemptionRecordParameters) => Promise<import("./lib/BLVT").IBLVTQueryRedemptionRecord[]>;
+        /** BSwap endpoints */
+        bSwapListAllSwapPools: (this: Api) => Promise<import("./lib/BSwap").IBSwapListAllSwapPools[]>;
+        bSwapGetLiquidityInformationOfPool: (this: Api, params?: import("./lib/BSwap").IBSwapGetLiquidityInformationOfPoolParameters) => Promise<import("./lib/BSwap").IBSwapGetLiquidityInformationOfPool[]>;
+        bSwapAddLiquIBSwapAddLiquidity: (this: Api, params: import("./lib/BSwap").IBSwapAddLiquidityParameters) => Promise<import("./lib/BSwap").IBSwapAddLiquidity>;
+        bSwapRemoveLiquidity: (this: Api, params: import("./lib/BSwap").IBSwapRemoveLiquidityParameters) => Promise<import("./lib/BSwap").IBSwapRemoveLiquidity>;
+        bSwapGetLiquidityOperationRecord: (this: Api, params?: import("./lib/BSwap").IBSwapGetLiquidityOperationRecordParameters) => Promise<import("./lib/BSwap").IBSwapGetLiquidityOperationRecord[]>;
+        bSwapRequestQuote: (this: Api, params: import("./lib/BSwap").IBSwapRequestQuoteParameters) => Promise<import("./lib/BSwap").IBSwapRequestQuote>;
+        bSwapSwap: (this: Api, params: import("./lib/BSwap").IBSwapSwapParameters) => Promise<import("./lib/BSwap").IBSwapSwap>;
+        bSwapGetSwapHistory: (this: Api, params?: import("./lib/BSwap").IBSwapGetSwapHistoryParameters) => Promise<import("./lib/BSwap").IBSwapGetSwapHistory[]>;
     }
     interface IRequest {
         headers: IRequestHeaders;
@@ -152,7 +181,8 @@ export declare namespace Binance {
         USER_DATA = "USER_DATA",
         MARGIN = "MARGIN",
         USER_STREAM = "USER_STREAM",
-        MARKET_DATA = "MARKET_DATA"
+        MARKET_DATA = "MARKET_DATA",
+        FUTURES = "FUTURES"
     }
     enum EOrderType {
         LIMIT = "LIMIT",
@@ -231,5 +261,11 @@ export declare namespace Binance {
         LOT_SIZE = "LOT_SIZE",
         INTEREST_RATE = "INTEREST_RATE",
         DURATION = "DURATION"
+    }
+    enum EFuturesType {
+        FROM_SPOT_TO_USDTFUTURS = 1,
+        FROM_USDTFUTURES_TO_SPOT = 2,
+        FROM_SPOT_TO_COINFUTURS = 3,
+        FROM_COINFUTURES_TO_SPOT = 4
     }
 }

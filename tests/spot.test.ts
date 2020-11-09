@@ -14,7 +14,7 @@ const createOrder = () => {
     side: Binance.EOrderSide.BUY,
     type: Binance.EOrderType.LIMIT,
     quantity: 0.01,
-    price: 1000,
+    price: 3000,
     timeInForce: Binance.EOrderTimeInForce.GTC,
   });
 };

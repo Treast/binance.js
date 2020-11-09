@@ -3,7 +3,6 @@ require('dotenv').config();
 import { Binance } from '../src/Binance';
 
 let binance: Binance.Api;
-let cache: Record<string, any> = [];
 
 describe('test all BSwap endpoints', () => {
   beforeAll(() => {
@@ -60,7 +59,6 @@ describe('test all BSwap endpoints', () => {
     expect(res).toHaveProperty('fee');
     expect(res).toHaveProperty('slippage');
   });
-});
 
   it('should GET #GetSwapHistory', async () => {
     expect.assertions(1);
@@ -70,6 +68,6 @@ describe('test all BSwap endpoints', () => {
       quoteAsset: 'USDT',
     });
 
-    expect(res.length).toBeGreaterThanOrEqual(0)
+    expect(res.length).toBeGreaterThanOrEqual(0);
   });
 });

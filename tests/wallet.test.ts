@@ -3,7 +3,6 @@ require('dotenv').config();
 import { Binance } from '../src/Binance';
 
 let binance: Binance.Api;
-let cache: Record<string, any> = [];
 
 describe('test all Wallet endpoints', () => {
   beforeAll(() => {

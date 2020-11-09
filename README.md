@@ -14,6 +14,8 @@ An API wrapper for Binance. Build your application faster !
 
 **This library is being written. Some features may be changed as updates are made. Be careful.**
 
+**I disclaim all responsibility for any loss, injury, claim, liability, or damage of any kind resulting from, arising out of, or any way related to any errors in or omissions from this library.**
+
 ## Installation
 
 	npm install binance.js --save

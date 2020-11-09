@@ -1,25 +1,16 @@
 import { Binance } from '../Binance';
 export declare class BLVT {
-    /**
-     * Warning: This function hasn't been tested.
-     */
     blvtGetBLVTInfo(this: Binance.Api, params?: IBLVTGetBLVTInfoParameters): Promise<IBLVTGetBLVTInfo[]>;
     /**
      * Warning: This function hasn't been tested.
      */
     blvtSubscribeBLVT(this: Binance.Api, params: IBLVTSubscribeBLVTParameters): Promise<IBLVTSubscribeBLVT>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     blvtQuerySubscriptionRecord(this: Binance.Api, params?: IBLVTQuerySubscriptionRecordParameters): Promise<IBLVTQuerySubscriptionRecord[]>;
     /**
      * Warning: This function hasn't been tested.
      */
     blvtRedeemBLVT(this: Binance.Api, params: IBLVTRedeemBLVTParameters): Promise<IBLVTRedeemBLVT>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
-    blvtQueryRedemptionRecord(this: Binance.Api, params: IBLVTQueryRedemptionRecordParameters): Promise<IBLVTQueryRedemptionRecord[]>;
+    blvtQueryRedemptionRecord(this: Binance.Api, params?: IBLVTQueryRedemptionRecordParameters): Promise<IBLVTQueryRedemptionRecord[]>;
 }
 export interface IBLVTGetBLVTInfoParameters extends Binance.IRequestParameters {
     tokenName?: string;

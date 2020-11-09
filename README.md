@@ -76,11 +76,12 @@ Stream functions return a *Websocket* instance from the *ws* package. A cache is
  - [x] Spot endpoints
  - [x] Margin endpoints
  - [x] Saving endpoints
- - [ ] Futures endpoints
+ - [x] Futures endpoints
  - [x] Streams
  - [x] Mining endpoints
- - [ ] BLVT endpoints
- - [ ] BSwap endpoints
+ - [x] BLVT endpoints
+ - [x] BSwap endpoints
+ - [ ] Streams typings
  - [ ] Sub-accounts endpoints
  - [ ] Better error handling
 

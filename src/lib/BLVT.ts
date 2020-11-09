@@ -1,9 +1,6 @@
 import { Binance } from '../Binance';
 
 export class BLVT {
-  /**
-   * Warning: This function hasn't been tested.
-   */
   blvtGetBLVTInfo(this: Binance.Api, params: IBLVTGetBLVTInfoParameters = {}) {
     return this.sendRequest<IBLVTGetBLVTInfoParameters, IBLVTGetBLVTInfo[]>(
       '/sapi/v1/blvt/tokenInfo',
@@ -26,9 +23,6 @@ export class BLVT {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   blvtQuerySubscriptionRecord(this: Binance.Api, params: IBLVTQuerySubscriptionRecordParameters = {}) {
     return this.sendRequest<IBLVTQuerySubscriptionRecordParameters, IBLVTQuerySubscriptionRecord[]>(
       '/sapi/v1/blvt/subscribe/record',
@@ -50,10 +44,7 @@ export class BLVT {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
-  blvtQueryRedemptionRecord(this: Binance.Api, params: IBLVTQueryRedemptionRecordParameters) {
+  blvtQueryRedemptionRecord(this: Binance.Api, params: IBLVTQueryRedemptionRecordParameters = {}) {
     return this.sendRequest<IBLVTQueryRedemptionRecordParameters, IBLVTQueryRedemptionRecord[]>(
       '/sapi/v1/blvt/redeem/record',
       params,

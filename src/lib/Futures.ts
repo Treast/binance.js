@@ -13,9 +13,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresGetFutureAccountTransactionHistoryList(this: Binance.Api, params: IFuturesGetFutureAccountTransactionHistoryListParameters) {
     return this.sendRequest<IFuturesGetFutureAccountTransactionHistoryListParameters, IFuturesGetFutureAccountTransactionHistoryList>(
       '/sapi/v1/futures/transfer',
@@ -37,9 +34,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresCrossCollateralBorrowHistory(this: Binance.Api, params: IFuturesCrossCollateralBorrowHistoryParameters = {}) {
     return this.sendRequest<IFuturesCrossCollateralBorrowHistoryParameters, IFuturesCrossCollateralBorrowHistory>(
       '/sapi/v1/futures/loan/borrow/history',
@@ -61,9 +55,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresCrossCollateralRepaymentHistory(this: Binance.Api, params: IFuturesCrossCollateralRepaymentHistoryParameters = {}) {
     return this.sendRequest<IFuturesCrossCollateralRepaymentHistoryParameters, IFuturesCrossCollateralRepaymentHistory>(
       '/sapi/v1/futures/loan/repay/history',
@@ -73,9 +64,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresCrossCollateralWallet(this: Binance.Api, params: IFuturesCrossCollateralWalletParameters = {}) {
     return this.sendRequest<IFuturesCrossCollateralWalletParameters, IFuturesCrossCollateralWallet>(
       '/sapi/v1/futures/loan/wallet',
@@ -85,11 +73,8 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresCrossCollateralInformation(this: Binance.Api, params: IFuturesCrossCollateralInformationParameters = {}) {
-    return this.sendRequest<IFuturesCrossCollateralInformationParameters, IFuturesCrossCollateralInformation>(
+    return this.sendRequest<IFuturesCrossCollateralInformationParameters, IFuturesCrossCollateralInformation[]>(
       '/sapi/v1/futures/loan/configs',
       params,
       Binance.ERequestMethod.GET,
@@ -109,9 +94,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresGetMaxAmountAdjustCrossCollateralLTV(this: Binance.Api, params: IFuturesGetMaxAmountAdjustCrossCollateralLTVParameters) {
     return this.sendRequest<IFuturesGetMaxAmountAdjustCrossCollateralLTVParameters, IFuturesGetMaxAmountAdjustCrossCollateralLTV>(
       '/sapi/v1/futures/loan/calcMaxAdjustAmount',
@@ -133,9 +115,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresAdjustCrossCollateralLTVHistory(this: Binance.Api, params: IFuturesAdjustCrossCollateralLTVHistoryParameters = {}) {
     return this.sendRequest<IFuturesAdjustCrossCollateralLTVHistoryParameters, IFuturesAdjustCrossCollateralLTVHistory>(
       '/sapi/v1/futures/loan/adjustCollateral/history',
@@ -145,9 +124,6 @@ export class Futures {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   futuresCrossCollateralLiquidationHistory(this: Binance.Api, params: IFuturesCrossCollateralLiquidationHistoryParameters = {}) {
     return this.sendRequest<IFuturesCrossCollateralLiquidationHistoryParameters, IFuturesCrossCollateralLiquidationHistory>(
       '/sapi/v1/futures/loan/liquidationHistory',

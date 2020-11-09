@@ -1,12 +1,6 @@
 import { Binance } from '../Binance';
 export declare class BSwap {
-    /**
-     * Warning: This function hasn't been tested.
-     */
     bSwapListAllSwapPools(this: Binance.Api): Promise<IBSwapListAllSwapPools[]>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     bSwapGetLiquidityInformationOfPool(this: Binance.Api, params?: IBSwapGetLiquidityInformationOfPoolParameters): Promise<IBSwapGetLiquidityInformationOfPool[]>;
     /**
      * Warning: This function hasn't been tested.
@@ -16,27 +10,18 @@ export declare class BSwap {
      * Warning: This function hasn't been tested.
      */
     bSwapRemoveLiquidity(this: Binance.Api, params: IBSwapRemoveLiquidityParameters): Promise<IBSwapRemoveLiquidity>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     bSwapGetLiquidityOperationRecord(this: Binance.Api, params?: IBSwapGetLiquidityOperationRecordParameters): Promise<IBSwapGetLiquidityOperationRecord[]>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     bSwapRequestQuote(this: Binance.Api, params: IBSwapRequestQuoteParameters): Promise<IBSwapRequestQuote>;
     /**
      * Warning: This function hasn't been tested.
      */
     bSwapSwap(this: Binance.Api, params: IBSwapSwapParameters): Promise<IBSwapSwap>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     bSwapGetSwapHistory(this: Binance.Api, params?: IBSwapGetSwapHistoryParameters): Promise<IBSwapGetSwapHistory[]>;
 }
 export interface IBSwapListAllSwapPools {
     poolId: number;
     poolName: number;
-    asset: string[];
+    assets: string[];
 }
 export interface IBSwapGetLiquidityInformationOfPoolParameters extends Binance.IRequestParameters {
     poolId?: number;

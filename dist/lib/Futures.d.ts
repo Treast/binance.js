@@ -4,53 +4,29 @@ export declare class Futures {
      * Warning: This function hasn't been tested.
      */
     futuresNewFutureAccountTransfer(this: Binance.Api, params: IFuturesNewFutureAccountTransferParameters): Promise<IFuturesNewFutureAccountTransfer>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresGetFutureAccountTransactionHistoryList(this: Binance.Api, params: IFuturesGetFutureAccountTransactionHistoryListParameters): Promise<IFuturesGetFutureAccountTransactionHistoryList>;
     /**
      * Warning: This function hasn't been tested.
      */
     futuresBorrowCrossCollateral(this: Binance.Api, params: IFuturesBorrowCrossCollateralParameters): Promise<IFuturesBorrowCrossCollateral>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresCrossCollateralBorrowHistory(this: Binance.Api, params?: IFuturesCrossCollateralBorrowHistoryParameters): Promise<IFuturesCrossCollateralBorrowHistory>;
     /**
      * Warning: This function hasn't been tested.
      */
     futuresRepayCrossCollateral(this: Binance.Api, params: IFuturesRepayCrossCollateralParameters): Promise<IFuturesRepayCrossCollateral>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresCrossCollateralRepaymentHistory(this: Binance.Api, params?: IFuturesCrossCollateralRepaymentHistoryParameters): Promise<IFuturesCrossCollateralRepaymentHistory>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresCrossCollateralWallet(this: Binance.Api, params?: IFuturesCrossCollateralWalletParameters): Promise<IFuturesCrossCollateralWallet>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
-    futuresCrossCollateralInformation(this: Binance.Api, params?: IFuturesCrossCollateralInformationParameters): Promise<IFuturesCrossCollateralInformation>;
+    futuresCrossCollateralInformation(this: Binance.Api, params?: IFuturesCrossCollateralInformationParameters): Promise<IFuturesCrossCollateralInformation[]>;
     /**
      * Warning: This function hasn't been tested.
      */
     futuresCalculateRateAfterAdjustCrossCollateralLTV(this: Binance.Api, params: IFuturesCalculateRateAfterAdjustCrossCollateralLTVParameters): Promise<IFuturesCalculateRateAfterAdjustCrossCollateralLTV>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresGetMaxAmountAdjustCrossCollateralLTV(this: Binance.Api, params: IFuturesGetMaxAmountAdjustCrossCollateralLTVParameters): Promise<IFuturesGetMaxAmountAdjustCrossCollateralLTV>;
     /**
      * Warning: This function hasn't been tested.
      */
     futuresAdjustCrossCollateralLTV(this: Binance.Api, params: IFuturesAdjustCrossCollateralLTVParameters): Promise<IFuturesAdjustCrossCollateralLTV>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresAdjustCrossCollateralLTVHistory(this: Binance.Api, params?: IFuturesAdjustCrossCollateralLTVHistoryParameters): Promise<IFuturesAdjustCrossCollateralLTVHistory>;
-    /**
-     * Warning: This function hasn't been tested.
-     */
     futuresCrossCollateralLiquidationHistory(this: Binance.Api, params?: IFuturesCrossCollateralLiquidationHistoryParameters): Promise<IFuturesCrossCollateralLiquidationHistory>;
 }
 export interface IFuturesNewFutureAccountTransferParameters extends Binance.IRequestParameters {

@@ -1,9 +1,6 @@
 import { Binance } from '../Binance';
 
 export class BSwap {
-  /**
-   * Warning: This function hasn't been tested.
-   */
   bSwapListAllSwapPools(this: Binance.Api) {
     return this.sendRequest<Binance.IResponseEmpty, IBSwapListAllSwapPools[]>(
       '/sapi/v1/bswap/pools',
@@ -14,9 +11,6 @@ export class BSwap {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   bSwapGetLiquidityInformationOfPool(this: Binance.Api, params: IBSwapGetLiquidityInformationOfPoolParameters = {}) {
     return this.sendRequest<IBSwapGetLiquidityInformationOfPoolParameters, IBSwapGetLiquidityInformationOfPool[]>(
       '/sapi/v1/bswap/liquidity',
@@ -50,9 +44,6 @@ export class BSwap {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   bSwapGetLiquidityOperationRecord(this: Binance.Api, params: IBSwapGetLiquidityOperationRecordParameters = {}) {
     return this.sendRequest<IBSwapGetLiquidityOperationRecordParameters, IBSwapGetLiquidityOperationRecord[]>(
       '/sapi/v1/bswap/liquidityOps',
@@ -62,9 +53,6 @@ export class BSwap {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   bSwapRequestQuote(this: Binance.Api, params: IBSwapRequestQuoteParameters) {
     return this.sendRequest<IBSwapRequestQuoteParameters, IBSwapRequestQuote>(
       '/sapi/v1/bswap/quote',
@@ -86,9 +74,6 @@ export class BSwap {
     );
   }
 
-  /**
-   * Warning: This function hasn't been tested.
-   */
   bSwapGetSwapHistory(this: Binance.Api, params: IBSwapGetSwapHistoryParameters = {}) {
     return this.sendRequest<IBSwapGetSwapHistoryParameters, IBSwapGetSwapHistory[]>(
       '/sapi/v1/bswap/swap',
@@ -102,7 +87,7 @@ export class BSwap {
 export interface IBSwapListAllSwapPools {
   poolId: number;
   poolName: number;
-  asset: string[];
+  assets: string[];
 }
 
 export interface IBSwapGetLiquidityInformationOfPoolParameters extends Binance.IRequestParameters {

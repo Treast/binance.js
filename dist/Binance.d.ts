@@ -130,7 +130,7 @@ export declare namespace Binance {
         futuresRepayCrossCollateral: (this: Api, params: import("./lib/Futures").IFuturesRepayCrossCollateralParameters) => Promise<import("./lib/Futures").IFuturesRepayCrossCollateral>;
         futuresCrossCollateralRepaymentHistory: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralRepaymentHistoryParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralRepaymentHistory>;
         futuresCrossCollateralWallet: (this: Api, params?: IRequestParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralWallet>;
-        futuresCrossCollateralInformation: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralInformationParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralInformation>;
+        futuresCrossCollateralInformation: (this: Api, params?: import("./lib/Futures").IFuturesCrossCollateralInformationParameters) => Promise<import("./lib/Futures").IFuturesCrossCollateralInformation[]>;
         futuresCalculateRateAfterAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesCalculateRateAfterAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesCalculateRateAfterAdjustCrossCollateralLTV>;
         futuresGetMaxAmountAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesGetMaxAmountAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesGetMaxAmountAdjustCrossCollateralLTV>;
         futuresAdjustCrossCollateralLTV: (this: Api, params: import("./lib/Futures").IFuturesAdjustCrossCollateralLTVParameters) => Promise<import("./lib/Futures").IFuturesAdjustCrossCollateralLTV>;
@@ -141,7 +141,7 @@ export declare namespace Binance {
         blvtSubscribeBLVT: (this: Api, params: import("./lib/BLVT").IBLVTSubscribeBLVTParameters) => Promise<import("./lib/BLVT").IBLVTSubscribeBLVT>;
         blvtQuerySubscriptionRecord: (this: Api, params?: import("./lib/BLVT").IBLVTQuerySubscriptionRecordParameters) => Promise<import("./lib/BLVT").IBLVTQuerySubscriptionRecord[]>;
         blvtRedeemBLVT: (this: Api, params: import("./lib/BLVT").IBLVTRedeemBLVTParameters) => Promise<import("./lib/BLVT").IBLVTRedeemBLVT>;
-        blvtQueryRedemptionRecord: (this: Api, params: import("./lib/BLVT").IBLVTQueryRedemptionRecordParameters) => Promise<import("./lib/BLVT").IBLVTQueryRedemptionRecord[]>;
+        blvtQueryRedemptionRecord: (this: Api, params?: import("./lib/BLVT").IBLVTQueryRedemptionRecordParameters) => Promise<import("./lib/BLVT").IBLVTQueryRedemptionRecord[]>;
         /** BSwap endpoints */
         bSwapListAllSwapPools: (this: Api) => Promise<import("./lib/BSwap").IBSwapListAllSwapPools[]>;
         bSwapGetLiquidityInformationOfPool: (this: Api, params?: import("./lib/BSwap").IBSwapGetLiquidityInformationOfPoolParameters) => Promise<import("./lib/BSwap").IBSwapGetLiquidityInformationOfPool[]>;

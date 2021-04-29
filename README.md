@@ -6,9 +6,9 @@ An API wrapper for Binance. Build your application faster !
 
 ## Benefits
 
--  Built with Typescript (autocomplete on request/response)
--  Use native Promises
--  Updated with the latest version
+- Built with Typescript (autocomplete on request/response)
+- Use native Promises
+- Updated with the latest version
 
 ## Disclaimer
 
@@ -18,27 +18,28 @@ An API wrapper for Binance. Build your application faster !
 
 ## Installation
 
-	npm install binance.js --save
+    npm install binance.js --save
 
 ## Usage
 
 ### Node
+
 ```js
 const { Binance } = require('binance.js');
 
-const binance = new Binance.Api(API_KEY, TEST_SECRET_KEY,  true); // 3rd parameter is testMode. Set explicitly to false if you want to use Live API.
+const binance = new Binance.Api(API_KEY, TEST_SECRET_KEY, true); // 3rd parameter is testMode. Set explicitly to false if you want to use Live API.
 
 binance
-.spotAllOrders({
-   	symbol:  'BTCUSDT',
-})
-.then((res)  =>  {
-	console.log(res);
-});
+  .spotAllOrders({
+    symbol: 'BTCUSDT',
+  })
+  .then((res) => {
+    console.log(res);
+  });
 ```
 
 ### Browser
-   
+
 ```js
 import { Binance } from 'binance.js';
 
@@ -58,32 +59,33 @@ binance
 ```
 
 ### Functions
+
 All functions have the same name as described on the official documentation and are prefixed by the domain: [https://binance-docs.github.io/apidocs/](https://binance-docs.github.io/apidocs/).
 
-**Example:** *Spot > New Order* becomes *spotNewOrder*
+**Example:** _Spot > New Order_ becomes _spotNewOrder_
 
-**Example:** *Savings > Purchase Fixed/Activity Project* becomes *savingsPurchaseFixedActivityProject*
+**Example:** _Savings > Purchase Fixed/Activity Project_ becomes _savingsPurchaseFixedActivityProject_
 
 ### Streams
-Stream functions return a *Websocket* instance from the *ws* package. A cache is set up to prevent opening a same stream twice.
 
+Stream functions return a _Websocket_ instance from the _ws_ package. A cache is set up to prevent opening a same stream twice.
 
 ## Progress
 
- - [x] API Structure
- - [x] Wallet endpoints
- - [x] Market endpoints
- - [x] Spot endpoints
- - [x] Margin endpoints
- - [x] Saving endpoints
- - [x] Futures endpoints
- - [x] Streams
- - [x] Mining endpoints
- - [x] BLVT endpoints
- - [x] BSwap endpoints
- - [ ] Streams typings
- - [ ] Sub-accounts endpoints
- - [ ] Better error handling
+- [x] API Structure
+- [x] Wallet endpoints
+- [x] Market endpoints
+- [x] Spot endpoints
+- [x] Margin endpoints
+- [x] Saving endpoints
+- [x] Futures endpoints
+- [x] Streams
+- [x] Mining endpoints
+- [x] BLVT endpoints
+- [x] BSwap endpoints
+- [x] Sub-accounts endpoints
+- [ ] Streams typings
+- [ ] Better error handling
 
 ## License
 

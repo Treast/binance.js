@@ -14,6 +14,7 @@ const Mining_1 = require("./lib/Mining");
 const Futures_1 = require("./lib/Futures");
 const BLVT_1 = require("./lib/BLVT");
 const BSwap_1 = require("./lib/BSwap");
+const SubAccount_1 = require("./lib/SubAccount");
 var Binance;
 (function (Binance) {
     class Api {
@@ -160,6 +161,42 @@ var Binance;
             this.bSwapRequestQuote = BSwap_1.BSwap.prototype.bSwapRequestQuote;
             this.bSwapSwap = BSwap_1.BSwap.prototype.bSwapSwap;
             this.bSwapGetSwapHistory = BSwap_1.BSwap.prototype.bSwapGetSwapHistory;
+            /** SubAccounts endpoints */
+            this.subAccountsList = SubAccount_1.SubAccounts.prototype.subAccountsList;
+            this.subAccountsTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsTransferHistory;
+            this.subAccountsAssets = SubAccount_1.SubAccounts.prototype.subAccountsAssets;
+            this.subAccountsCreateVirtualSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsCreateVirtualSubAccount;
+            this.subAccountsQuerySubAccountListSAPI = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountListSAPI;
+            this.subAccountsQuerySubAccountList = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountList;
+            this.subAccountsQuerySubAccountSpotAssetTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetTransferHistory;
+            this.subAccountsQuerySubAccountSpotAssetTransferHistorySAPI = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetTransferHistorySAPI;
+            this.subAccountsSubAccountSpotAssetTransfer = SubAccount_1.SubAccounts.prototype.subAccountsSubAccountSpotAssetTransfer;
+            this.subAccountsQuerySubAccountFuturesAssetTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountFuturesAssetTransferHistory;
+            this.subAccountsSubAccountFuturesAssetTransfer = SubAccount_1.SubAccounts.prototype.subAccountsSubAccountFuturesAssetTransfer;
+            this.subAccountsQuerySubAccountsAssets = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountsAssets;
+            this.subAccountsQuerySubAccountsAssetsSAPI = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountsAssetsSAPI;
+            this.subAccountsQuerySubAccountSpotAssetsSummary = SubAccount_1.SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetsSummary;
+            this.subAccountsGetSubAccountDepositAddress = SubAccount_1.SubAccounts.prototype.subAccountsGetSubAccountDepositAddress;
+            this.subAccountsGetSubAccountDepositHistory = SubAccount_1.SubAccounts.prototype.subAccountsGetSubAccountDepositHistory;
+            this.subAccountsGetSubAccountStatusMarginFutures = SubAccount_1.SubAccounts.prototype.subAccountsGetSubAccountStatusMarginFutures;
+            this.subAccountsEnableMarginSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsEnableMarginSubAccount;
+            this.subAccountsGetDetailSubAccountMarginAccount = SubAccount_1.SubAccounts.prototype.subAccountsGetDetailSubAccountMarginAccount;
+            this.subAccountsGetSummarySubAccountMarginAccount = SubAccount_1.SubAccounts.prototype.subAccountsGetSummarySubAccountMarginAccount;
+            this.subAccountsEnableFuturesSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsEnableFuturesSubAccount;
+            this.subAccountsGetDetailSubAccountFuturesAccount = SubAccount_1.SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccount;
+            this.subAccountsGetSummarySubAccountFuturesAccount = SubAccount_1.SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccount;
+            this.subAccountsGetFuturesPositionRiskSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsGetFuturesPositionRiskSubAccount;
+            this.subAccountsFuturesTransferSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsFuturesTransferSubAccount;
+            this.subAccountsMarginTransferSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsMarginTransferSubAccount;
+            this.subAccountsTransferSubAccountSameMaster = SubAccount_1.SubAccounts.prototype.subAccountsTransferSubAccountSameMaster;
+            this.subAccountsTransferToMaster = SubAccount_1.SubAccounts.prototype.subAccountsTransferToMaster;
+            this.subAccountsSubAccountTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsSubAccountTransferHistory;
+            this.subAccountsUniversalTransfer = SubAccount_1.SubAccounts.prototype.subAccountsList;
+            this.subAccountsQueryUniversalTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsQueryUniversalTransferHistory;
+            this.subAccountsGetDetailSubAccountFuturesAccountV2 = SubAccount_1.SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccountV2;
+            this.subAccountsGetSummarySubAccountFuturesAccountV2 = SubAccount_1.SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccountV2;
+            this.subAccountsGetFuturesPositionRiskSubAccountV2 = SubAccount_1.SubAccounts.prototype.subAccountsGetFuturesPositionRiskSubAccountV2;
+            this.subAccountsEnableLeverageTokenSubAccount = SubAccount_1.SubAccounts.prototype.subAccountsEnableLeverageTokenSubAccount;
             if (!apiKey)
                 throw new Error('A valid API key is required');
             if (!secretKey)
@@ -342,5 +379,16 @@ var Binance;
         EFuturesType[EFuturesType["FROM_SPOT_TO_COINFUTURS"] = 3] = "FROM_SPOT_TO_COINFUTURS";
         EFuturesType[EFuturesType["FROM_COINFUTURES_TO_SPOT"] = 4] = "FROM_COINFUTURES_TO_SPOT";
     })(EFuturesType = Binance.EFuturesType || (Binance.EFuturesType = {}));
+    let EAccountType;
+    (function (EAccountType) {
+        EAccountType["SPOT"] = "SPOT";
+        EAccountType["USDT_FUTURE"] = "USDT_FUTURE";
+        EAccountType["COIN_FUTURE"] = "COIN_FUTURE";
+    })(EAccountType = Binance.EAccountType || (Binance.EAccountType = {}));
+    let ESubAccountFuturesType;
+    (function (ESubAccountFuturesType) {
+        ESubAccountFuturesType[ESubAccountFuturesType["USDT"] = 1] = "USDT";
+        ESubAccountFuturesType[ESubAccountFuturesType["COIN"] = 2] = "COIN";
+    })(ESubAccountFuturesType = Binance.ESubAccountFuturesType || (Binance.ESubAccountFuturesType = {}));
 })(Binance = exports.Binance || (exports.Binance = {}));
 //# sourceMappingURL=Binance.js.map

@@ -12,6 +12,7 @@ import { Mining } from './lib/Mining';
 import { Futures } from './lib/Futures';
 import { BLVT } from './lib/BLVT';
 import { BSwap } from './lib/BSwap';
+import { SubAccounts } from './lib/SubAccount';
 
 export namespace Binance {
   export class Api {
@@ -267,6 +268,43 @@ export namespace Binance {
     bSwapRequestQuote = BSwap.prototype.bSwapRequestQuote;
     bSwapSwap = BSwap.prototype.bSwapSwap;
     bSwapGetSwapHistory = BSwap.prototype.bSwapGetSwapHistory;
+
+    /** SubAccounts endpoints */
+    subAccountsList = SubAccounts.prototype.subAccountsList;
+    subAccountsTransferHistory = SubAccounts.prototype.subAccountsTransferHistory;
+    subAccountsAssets = SubAccounts.prototype.subAccountsAssets;
+    subAccountsCreateVirtualSubAccount = SubAccounts.prototype.subAccountsCreateVirtualSubAccount;
+    subAccountsQuerySubAccountListSAPI = SubAccounts.prototype.subAccountsQuerySubAccountListSAPI;
+    subAccountsQuerySubAccountList = SubAccounts.prototype.subAccountsQuerySubAccountList;
+    subAccountsQuerySubAccountSpotAssetTransferHistory = SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetTransferHistory;
+    subAccountsQuerySubAccountSpotAssetTransferHistorySAPI = SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetTransferHistorySAPI;
+    subAccountsSubAccountSpotAssetTransfer = SubAccounts.prototype.subAccountsSubAccountSpotAssetTransfer;
+    subAccountsQuerySubAccountFuturesAssetTransferHistory = SubAccounts.prototype.subAccountsQuerySubAccountFuturesAssetTransferHistory;
+    subAccountsSubAccountFuturesAssetTransfer = SubAccounts.prototype.subAccountsSubAccountFuturesAssetTransfer;
+    subAccountsQuerySubAccountsAssets = SubAccounts.prototype.subAccountsQuerySubAccountsAssets;
+    subAccountsQuerySubAccountsAssetsSAPI = SubAccounts.prototype.subAccountsQuerySubAccountsAssetsSAPI;
+    subAccountsQuerySubAccountSpotAssetsSummary = SubAccounts.prototype.subAccountsQuerySubAccountSpotAssetsSummary;
+    subAccountsGetSubAccountDepositAddress = SubAccounts.prototype.subAccountsGetSubAccountDepositAddress;
+    subAccountsGetSubAccountDepositHistory = SubAccounts.prototype.subAccountsGetSubAccountDepositHistory;
+    subAccountsGetSubAccountStatusMarginFutures = SubAccounts.prototype.subAccountsGetSubAccountStatusMarginFutures;
+    subAccountsEnableMarginSubAccount = SubAccounts.prototype.subAccountsEnableMarginSubAccount;
+    subAccountsGetDetailSubAccountMarginAccount = SubAccounts.prototype.subAccountsGetDetailSubAccountMarginAccount;
+    subAccountsGetSummarySubAccountMarginAccount = SubAccounts.prototype.subAccountsGetSummarySubAccountMarginAccount;
+    subAccountsEnableFuturesSubAccount = SubAccounts.prototype.subAccountsEnableFuturesSubAccount;
+    subAccountsGetDetailSubAccountFuturesAccount = SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccount;
+    subAccountsGetSummarySubAccountFuturesAccount = SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccount;
+    subAccountsGetFuturesPositionRiskSubAccount = SubAccounts.prototype.subAccountsGetFuturesPositionRiskSubAccount;
+    subAccountsFuturesTransferSubAccount = SubAccounts.prototype.subAccountsFuturesTransferSubAccount;
+    subAccountsMarginTransferSubAccount = SubAccounts.prototype.subAccountsMarginTransferSubAccount;
+    subAccountsTransferSubAccountSameMaster = SubAccounts.prototype.subAccountsTransferSubAccountSameMaster;
+    subAccountsTransferToMaster = SubAccounts.prototype.subAccountsTransferToMaster;
+    subAccountsSubAccountTransferHistory = SubAccounts.prototype.subAccountsSubAccountTransferHistory;
+    subAccountsUniversalTransfer = SubAccounts.prototype.subAccountsList;
+    subAccountsQueryUniversalTransferHistory = SubAccounts.prototype.subAccountsQueryUniversalTransferHistory;
+    subAccountsGetDetailSubAccountFuturesAccountV2 = SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccountV2;
+    subAccountsGetSummarySubAccountFuturesAccountV2 = SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccountV2;
+    subAccountsGetFuturesPositionRiskSubAccountV2 = SubAccounts.prototype.subAccountsGetFuturesPositionRiskSubAccountV2;
+    subAccountsEnableLeverageTokenSubAccount = SubAccounts.prototype.subAccountsEnableLeverageTokenSubAccount;
   }
 
   export interface IRequest {
@@ -400,5 +438,16 @@ export namespace Binance {
     FROM_USDTFUTURES_TO_SPOT = 2,
     FROM_SPOT_TO_COINFUTURS = 3,
     FROM_COINFUTURES_TO_SPOT = 4,
+  }
+
+  export enum EAccountType {
+    SPOT = 'SPOT',
+    USDT_FUTURE = 'USDT_FUTURE',
+    COIN_FUTURE = 'COIN_FUTURE',
+  }
+
+  export enum ESubAccountFuturesType {
+    USDT = 1,
+    COIN = 2,
   }
 }

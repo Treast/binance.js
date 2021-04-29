@@ -151,6 +151,42 @@ export declare namespace Binance {
         bSwapRequestQuote: (this: Api, params: import("./lib/BSwap").IBSwapRequestQuoteParameters) => Promise<import("./lib/BSwap").IBSwapRequestQuote>;
         bSwapSwap: (this: Api, params: import("./lib/BSwap").IBSwapSwapParameters) => Promise<import("./lib/BSwap").IBSwapSwap>;
         bSwapGetSwapHistory: (this: Api, params?: import("./lib/BSwap").IBSwapGetSwapHistoryParameters) => Promise<import("./lib/BSwap").IBSwapGetSwapHistory[]>;
+        /** SubAccounts endpoints */
+        subAccountsList: (this: Api) => Promise<import("./lib/SubAccount").ISubAccountsList>;
+        subAccountsTransferHistory: (this: Api) => Promise<import("./lib/SubAccount").ISubAccountsList>;
+        subAccountsAssets: (this: Api) => Promise<import("./lib/SubAccount").ISubAccountsAssets>;
+        subAccountsCreateVirtualSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsCreateVirtualSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsCreateVirtualSubAccount>;
+        subAccountsQuerySubAccountListSAPI: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountListSAPIParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountListSAPI>;
+        subAccountsQuerySubAccountList: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountListParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountList>;
+        subAccountsQuerySubAccountSpotAssetTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetTransferHistory>;
+        subAccountsQuerySubAccountSpotAssetTransferHistorySAPI: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetTransferHistorySAPIParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetTransferHistoryItem[]>;
+        subAccountsSubAccountSpotAssetTransfer: (this: Api, params: import("./lib/SubAccount").ISubAccountsSubAccountSpotAssetTransferParameters) => Promise<import("./lib/SubAccount").ISubAccountsSubAccountSpotAssetTransfer>;
+        subAccountsQuerySubAccountFuturesAssetTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountFuturesAssetTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountFuturesAssetTransferHistory>;
+        subAccountsSubAccountFuturesAssetTransfer: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountFuturesAssetTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountFuturesAssetTransferHistory>;
+        subAccountsQuerySubAccountsAssets: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountAssetsParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountAssets>;
+        subAccountsQuerySubAccountsAssetsSAPI: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountAssetsSAPIParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountAssetsSAPI>;
+        subAccountsQuerySubAccountSpotAssetsSummary: (this: Api, params: import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetsSummaryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQuerySubAccountSpotAssetsSummary>;
+        subAccountsGetSubAccountDepositAddress: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSubAccountDepositAddressParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSubAccountDepositAddress>;
+        subAccountsGetSubAccountDepositHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSubAccountDepositAddressHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSubAccountDepositAddressHistory[]>;
+        subAccountsGetSubAccountStatusMarginFutures: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSubAccountStatusMarginFuturesParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSubAccountStatusMarginFutures[]>;
+        subAccountsEnableMarginSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsEnableMarginSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsEnableMarginSubAccount>;
+        subAccountsGetDetailSubAccountMarginAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetDetailSubAccountMarginAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetDetailSubAccountMarginAccount>;
+        subAccountsGetSummarySubAccountMarginAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSummarySubAccountMarginAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSummarySubAccountMarginAccount>;
+        subAccountsEnableFuturesSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsEnableFuturesSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsEnableFuturesSubAccount>;
+        subAccountsGetDetailSubAccountFuturesAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccount>;
+        subAccountsGetSummarySubAccountFuturesAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccount>;
+        subAccountsGetFuturesPositionRiskSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetFuturesPositionRiskSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsGetFuturesPositionRiskSubAccount[]>;
+        subAccountsFuturesTransferSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsFuturesTransferSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsFuturesTransferSubAccount>;
+        subAccountsMarginTransferSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsMarginTransferSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsMarginTransferSubAccount>;
+        subAccountsTransferSubAccountSameMaster: (this: Api, params: import("./lib/SubAccount").ISubAccountsTransferSubAccountSameMasterParameters) => Promise<import("./lib/SubAccount").ISubAccountsTransferSubAccountSameMaster>;
+        subAccountsTransferToMaster: (this: Api, params: import("./lib/SubAccount").ISubAccountsTransferToMasterParameters) => Promise<import("./lib/SubAccount").ISubAccountsTransferToMaster>;
+        subAccountsSubAccountTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsSubAccountTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsSubAccountTransferHistory[]>;
+        subAccountsUniversalTransfer: (this: Api) => Promise<import("./lib/SubAccount").ISubAccountsList>;
+        subAccountsQueryUniversalTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsQueryUniversalTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQueryUniversalTransferHistory[]>;
+        subAccountsGetDetailSubAccountFuturesAccountV2: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccountV2Parameters) => Promise<import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccountV2>;
+        subAccountsGetSummarySubAccountFuturesAccountV2: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccountV2Parameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccountV2>;
+        subAccountsGetFuturesPositionRiskSubAccountV2: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetFuturesPositionRiskSubAccountV2Parameters) => Promise<import("./lib/SubAccount").ISubAccountsGetFuturesPositionRiskSubAccountV2>;
+        subAccountsEnableLeverageTokenSubAccount: (this: Api, params: import("./lib/SubAccount").ISubAccountsEnableLeverageTokenSubAccountParameters) => Promise<import("./lib/SubAccount").ISubAccountsEnableLeverageTokenSubAccount>;
     }
     interface IRequest {
         headers: IRequestHeaders;
@@ -267,5 +303,14 @@ export declare namespace Binance {
         FROM_USDTFUTURES_TO_SPOT = 2,
         FROM_SPOT_TO_COINFUTURS = 3,
         FROM_COINFUTURES_TO_SPOT = 4
+    }
+    enum EAccountType {
+        SPOT = "SPOT",
+        USDT_FUTURE = "USDT_FUTURE",
+        COIN_FUTURE = "COIN_FUTURE"
+    }
+    enum ESubAccountFuturesType {
+        USDT = 1,
+        COIN = 2
     }
 }

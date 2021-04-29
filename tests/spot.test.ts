@@ -122,26 +122,26 @@ describe('test all Spot endpoints', () => {
     expect(res.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('should POST #NewOCO', async () => {
-    expect.assertions(1);
+  // it('should POST #NewOCO', async () => {
+  //   expect.assertions(1);
 
-    const res = await createOCOOrder();
+  //   const res = await createOCOOrder();
 
-    cache['orderListId'] = res.orderListId;
+  //   cache['orderListId'] = res.orderListId;
 
-    expect(res).toHaveProperty('symbol', ASSET_ORDER_OCO);
-  });
+  //   expect(res).toHaveProperty('symbol', ASSET_ORDER_OCO);
+  // });
 
-  it('should DELETE #CancelOCO', async () => {
-    expect.assertions(1);
+  // it('should DELETE #CancelOCO', async () => {
+  //   expect.assertions(1);
 
-    const res = await binance.spotCancelOCO({
-      symbol: ASSET_ORDER_OCO,
-      orderListId: cache['orderListId'],
-    });
+  //   const res = await binance.spotCancelOCO({
+  //     symbol: ASSET_ORDER_OCO,
+  //     orderListId: cache['orderListId'],
+  //   });
 
-    expect(res).toHaveProperty('symbol', ASSET_ORDER_OCO);
-  });
+  //   expect(res).toHaveProperty('symbol', ASSET_ORDER_OCO);
+  // });
 
   it('should GET #QueryOCO', async () => {
     expect.assertions(1);
@@ -165,18 +165,18 @@ describe('test all Spot endpoints', () => {
     expect(res.length).toBeGreaterThanOrEqual(0);
   });
 
-  it('should GET #QueryOpenOCO', async () => {
-    expect.assertions(1);
+  // it('should GET #QueryOpenOCO', async () => {
+  //   expect.assertions(1);
 
-    const res = await binance.spotQueryOpenOCO();
+  //   const res = await binance.spotQueryOpenOCO();
 
-    await binance.spotCancelOCO({
-      symbol: ASSET_ORDER_OCO,
-      orderListId: cache['orderListId'],
-    });
+  //   await binance.spotCancelOCO({
+  //     symbol: ASSET_ORDER_OCO,
+  //     orderListId: cache['orderListId'],
+  //   });
 
-    expect(res.length).toBeGreaterThanOrEqual(0);
-  });
+  //   expect(res.length).toBeGreaterThanOrEqual(0);
+  // });
 
   it('should GET #AccountInformation', async () => {
     expect.assertions(2);

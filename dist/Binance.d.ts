@@ -181,7 +181,7 @@ export declare namespace Binance {
         subAccountsTransferSubAccountSameMaster: (this: Api, params: import("./lib/SubAccount").ISubAccountsTransferSubAccountSameMasterParameters) => Promise<import("./lib/SubAccount").ISubAccountsTransferSubAccountSameMaster>;
         subAccountsTransferToMaster: (this: Api, params: import("./lib/SubAccount").ISubAccountsTransferToMasterParameters) => Promise<import("./lib/SubAccount").ISubAccountsTransferToMaster>;
         subAccountsSubAccountTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsSubAccountTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsSubAccountTransferHistory[]>;
-        subAccountsUniversalTransfer: (this: Api) => Promise<import("./lib/SubAccount").ISubAccountsList>;
+        subAccountsUniversalTransfer: (this: Api, params: import("./lib/SubAccount").ISubAccountsUniversalTransferParameters) => Promise<import("./lib/SubAccount").ISubAccountsUniversalTransfer>;
         subAccountsQueryUniversalTransferHistory: (this: Api, params: import("./lib/SubAccount").ISubAccountsQueryUniversalTransferHistoryParameters) => Promise<import("./lib/SubAccount").ISubAccountsQueryUniversalTransferHistory[]>;
         subAccountsGetDetailSubAccountFuturesAccountV2: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccountV2Parameters) => Promise<import("./lib/SubAccount").ISubAccountsGetDetailSubAccountFuturesAccountV2>;
         subAccountsGetSummarySubAccountFuturesAccountV2: (this: Api, params: import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccountV2Parameters) => Promise<import("./lib/SubAccount").ISubAccountsGetSummarySubAccountFuturesAccountV2>;

@@ -299,7 +299,7 @@ export namespace Binance {
     subAccountsTransferSubAccountSameMaster = SubAccounts.prototype.subAccountsTransferSubAccountSameMaster;
     subAccountsTransferToMaster = SubAccounts.prototype.subAccountsTransferToMaster;
     subAccountsSubAccountTransferHistory = SubAccounts.prototype.subAccountsSubAccountTransferHistory;
-    subAccountsUniversalTransfer = SubAccounts.prototype.subAccountsList;
+    subAccountsUniversalTransfer = SubAccounts.prototype.subAccountsUniversalTransfer;
     subAccountsQueryUniversalTransferHistory = SubAccounts.prototype.subAccountsQueryUniversalTransferHistory;
     subAccountsGetDetailSubAccountFuturesAccountV2 = SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccountV2;
     subAccountsGetSummarySubAccountFuturesAccountV2 = SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccountV2;

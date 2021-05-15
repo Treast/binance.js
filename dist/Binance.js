@@ -191,7 +191,7 @@ var Binance;
             this.subAccountsTransferSubAccountSameMaster = SubAccount_1.SubAccounts.prototype.subAccountsTransferSubAccountSameMaster;
             this.subAccountsTransferToMaster = SubAccount_1.SubAccounts.prototype.subAccountsTransferToMaster;
             this.subAccountsSubAccountTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsSubAccountTransferHistory;
-            this.subAccountsUniversalTransfer = SubAccount_1.SubAccounts.prototype.subAccountsList;
+            this.subAccountsUniversalTransfer = SubAccount_1.SubAccounts.prototype.subAccountsUniversalTransfer;
             this.subAccountsQueryUniversalTransferHistory = SubAccount_1.SubAccounts.prototype.subAccountsQueryUniversalTransferHistory;
             this.subAccountsGetDetailSubAccountFuturesAccountV2 = SubAccount_1.SubAccounts.prototype.subAccountsGetDetailSubAccountFuturesAccountV2;
             this.subAccountsGetSummarySubAccountFuturesAccountV2 = SubAccount_1.SubAccounts.prototype.subAccountsGetSummarySubAccountFuturesAccountV2;

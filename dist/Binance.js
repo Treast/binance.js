@@ -228,16 +228,17 @@ var Binance;
                 })
                     .then((res) => {
                     if (res.status === 404)
-                        throw new Error('Endpoint not found');
+                        reject('Endpoint not found');
                     if (res.status === 401)
-                        throw new Error('Forbidden access');
+                        reject('Forbidden access');
                     return res.json();
                 })
                     .then((res) => {
                     if (res.code && res.code < 0)
                         reject(res);
                     resolve(res);
-                });
+                })
+                    .catch((err) => reject(err));
             });
         }
         generateQuery(params) {

@@ -79,8 +79,8 @@ export namespace Binance {
           headers,
         })
           .then((res: any) => {
-            if (res.status === 404) throw new Error('Endpoint not found');
-            if (res.status === 401) throw new Error('Forbidden access');
+            if (res.status === 404) reject('Endpoint not found');
+            if (res.status === 401) reject('Forbidden access');
 
             return res.json();
           })

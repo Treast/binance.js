@@ -88,7 +88,8 @@ export namespace Binance {
             if (res.code && res.code < 0) reject(res);
 
             resolve(res as T);
-          });
+          })
+          .catch((err: any) => reject(err));
       });
     }
 

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Binance = void 0;
-const fetch = require("node-fetch");
+require('isomorphic-fetch');
 const hmacSHA256 = require("crypto-js/hmac-sha256");
 const WebSocket = require("ws");
 const Wallet_1 = require("./lib/Wallet");

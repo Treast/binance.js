@@ -1,4 +1,4 @@
-import fetch = require('node-fetch');
+require('isomorphic-fetch');
 import hmacSHA256 = require('crypto-js/hmac-sha256');
 import WebSocket = require('ws');
 
@@ -13,6 +13,8 @@ import { Futures } from './lib/Futures';
 import { BLVT } from './lib/BLVT';
 import { BSwap } from './lib/BSwap';
 import { SubAccounts } from './lib/SubAccount';
+
+declare const fetch: any;
 
 export namespace Binance {
   export class Api {
@@ -76,7 +78,7 @@ export namespace Binance {
           method,
           headers,
         })
-          .then((res) => {
+          .then((res: any) => {
             if (res.status === 404) throw new Error('Endpoint not found');
             if (res.status === 401) throw new Error('Forbidden access');
 

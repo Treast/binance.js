@@ -1,6 +1,6 @@
 {
   "name": "binance.js",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "An API wrapper for Binance. Build your application faster !",
   "main": "dist/Binance.js",
   "module": "dist/Binance.js",
@@ -9,6 +9,11 @@
     "dev": "tsc -p . -w",
     "test": "jest"
   },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
   "types": "dist/Binance.d.ts",
   "keywords": [
     "binance",

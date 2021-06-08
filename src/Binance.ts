@@ -118,9 +118,10 @@ export namespace Binance {
       if (this.streams.has(url)) return this.streams.get(url);
 
       const ws = new WebSocket(`${this.baseUrlStream}${url}`);
-      ws.on('ping', () => ws.pong());
-      ws.on('close', () => this.streams.delete(url));
-      ws.on('open', () => this.streams.set(url, ws));
+      // ws.on('ping', () => ws.pong());
+
+      ws.onclose = () => this.streams.delete(url);
+      ws.onopen = () => this.streams.set(url, ws);
 
       return ws;
     }

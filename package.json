@@ -1,6 +1,6 @@
 {
   "name": "binance.js",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "An API wrapper for Binance. Build your application faster !",
   "main": "dist/Binance.js",
   "module": "dist/Binance.js",
@@ -41,6 +41,7 @@
   "dependencies": {
     "crypto-js": "^4.0.0",
     "isomorphic-fetch": "^3.0.0",
+    "isomorphic-ws": "^4.0.1",
     "ws": "^7.3.1"
   }
 }

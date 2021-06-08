@@ -1,4 +1,4 @@
-import WebSocket = require('ws');
+import WebSocket = require('isomorphic-ws');
 export declare namespace Binance {
     class Api {
         private apiKey;

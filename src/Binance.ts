@@ -1,6 +1,6 @@
 require('isomorphic-fetch');
 import hmacSHA256 = require('crypto-js/hmac-sha256');
-import WebSocket = require('ws');
+import WebSocket = require('isomorphic-ws');
 
 import { Wallet } from './lib/Wallet';
 import { Market } from './lib/Market';

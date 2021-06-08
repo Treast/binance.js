@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Binance = void 0;
 require('isomorphic-fetch');
 const hmacSHA256 = require("crypto-js/hmac-sha256");
-const WebSocket = require("ws");
+const WebSocket = require("isomorphic-ws");
 const Wallet_1 = require("./lib/Wallet");
 const Market_1 = require("./lib/Market");
 const Spot_1 = require("./lib/Spot");
